@@ -122,9 +122,11 @@ export default function AISalesAssistantPage() {
         </div>
       </Section>
 
-      <Section id="demo">
-        <InteractiveDemo />
-      </Section>
+      <section id="demo">
+  <Section>
+    <InteractiveDemo />
+  </Section>
+</section>
 
       <Section className="bg-brand-charcoal/30">
         <SectionHeader
