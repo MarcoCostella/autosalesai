@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Button from "@/components/ui/Button";
 
 const fields = [
   ["name", "Name"],
@@ -97,9 +96,13 @@ export default function DemoForm() {
         </p>
       )}
 
-      <Button type="submit" className="mt-8" disabled={isSubmitting}>
+      <button
+  type="submit"
+  disabled={isSubmitting}
+  className="mt-8 inline-flex items-center justify-center border border-brand-gold/80 px-8 py-4 text-[13px] font-bold uppercase tracking-[0.18em] text-brand-gold transition hover:bg-brand-gold hover:text-black disabled:cursor-not-allowed disabled:opacity-50"
+>
         {isSubmitting ? "Submitting..." : "Request Demo"}
-      </Button>
+      </button>
     </form>
   );
 }
