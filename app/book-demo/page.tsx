@@ -30,13 +30,12 @@ export default function BookDemoPage() {
         <SectionHeader title="What Happens Next" />
 
         <ProcessSteps
-          steps={[
-            "We review your dealership website",
-            "We understand your current enquiry process",
-            "We demonstrate a tailored AutoSalesAI deployment",,
-            "You receive an implementation plan"
-          ]}
-        />
+  steps={[
+    "We review your dealership website",
+    "We understand your current enquiry process",
+    "We demonstrate a tailored AutoSalesAI deployment",
+  ].filter((step): step is string => Boolean(step))}
+/>
       </Section>
     </>
   );
