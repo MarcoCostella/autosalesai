@@ -1,0 +1,86 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+const navigation = [
+  ["Home", "/"],
+  ["AI Sales Assistant", "/ai-sales-assistant"],
+  ["Market Intelligence", "/market-intelligence"],
+  ["Case Studies", "/case-studies"],
+  ["About", "/about"],
+  ["Book Demo", "/book-demo"]
+];
+
+export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/95 backdrop-blur">
+      <div className="mx-auto flex h-[92px] max-w-[1440px] items-center justify-between px-5 md:h-[116px] md:px-8 lg:px-12 xl:px-16">
+        <Link href="/" className="relative flex items-center">
+          <div className="absolute inset-0 rounded-full bg-brand-gold/10 blur-3xl" />
+
+          <Image
+            src="/images/autosalesai-logo-transparent.png"
+            alt="AutoSalesAI"
+            width={320}
+            height={120}
+            priority
+            className="relative z-10 h-auto w-[190px] object-contain md:w-[310px]"
+          />
+        </Link>
+
+        <nav className="hidden items-center gap-10 lg:flex">
+          {navigation.slice(0, 5).map(([label, href]) => (
+            <Link
+              key={href}
+              href={href}
+              className={`text-[13px] font-bold uppercase tracking-[0.18em] transition ${
+                href === "/"
+                  ? "text-brand-gold"
+                  : "text-white hover:text-brand-gold"
+              }`}
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
+
+        <Link
+          href="/book-demo"
+          className="hidden border border-brand-gold/80 px-8 py-4 text-[13px] font-bold uppercase tracking-[0.18em] text-brand-gold transition hover:bg-brand-gold hover:text-black lg:inline-flex"
+        >
+          Book A Demo
+        </Link>
+
+        <button
+          type="button"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          className="inline-flex border border-brand-gold/70 px-4 py-3 text-[12px] font-bold uppercase tracking-[0.18em] text-brand-gold lg:hidden"
+          aria-label="Toggle navigation menu"
+        >
+          {menuOpen ? "Close" : "Menu"}
+        </button>
+      </div>
+
+      {menuOpen && (
+        <div className="border-t border-white/10 bg-black px-5 py-6 lg:hidden">
+          <nav className="flex flex-col gap-4">
+            {navigation.map(([label, href]) => (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => setMenuOpen(false)}
+                className="border border-white/10 px-5 py-4 text-[13px] font-bold uppercase tracking-[0.18em] text-white transition hover:border-brand-gold hover:text-brand-gold"
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+}
