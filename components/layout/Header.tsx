@@ -50,7 +50,7 @@ export default function Header() {
 
         <Link
           href="/book-demo"
-          className="hidden border border-brand-gold/80 px-8 py-4 text-[13px] font-bold uppercase tracking-[0.18em] text-brand-gold transition hover:bg-brand-gold hover:text-black lg:inline-flex"
+          className="hidden rounded-lg border border-brand-gold/80 px-8 py-4 text-[13px] font-bold uppercase tracking-[0.18em] text-brand-gold transition hover:bg-brand-gold hover:text-black lg:inline-flex"
         >
           Book A Demo
         </Link>
