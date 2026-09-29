@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 import MarketAppShell from "@/components/market-intelligence/MarketAppShell";
 
@@ -180,8 +180,132 @@ export default function OpportunitiesPage() {
           {opportunities.length} opportunities shown
         </div>
 
+        {/* MOBILE OPPORTUNITY CARDS */}
+        <section className="mt-3 space-y-3 md:hidden">
+          {opportunities.map((opportunity) => (
+            <article
+              key={opportunity.id}
+              className="overflow-hidden rounded-xl border border-[#d4af37]/55 bg-[linear-gradient(145deg,#121415_0%,#0c0e0f_100%)]"
+            >
+              <div className="p-4">
+
+                <div className="flex items-start gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#68c72e] text-[11px] font-semibold text-[#80e044]">
+                    {opportunity.score}
+                  </div>
+
+                  <div className="min-w-0 flex-1">
+                    <div className="text-[13px] font-semibold text-white">
+                      {opportunity.vehicle}
+                    </div>
+
+                    <div className="mt-0.5 text-[9px] text-[#858585]">
+                      {opportunity.derivative}
+                    </div>
+
+                    <div className="mt-1 text-[8px] text-[#666]">
+                      {opportunity.year} • {formatMileage(opportunity.mileage)}
+                    </div>
+                  </div>
+
+                  <div className="flex h-8 w-[68px] shrink-0 items-center justify-end">
+                    <img
+                      src={opportunity.auctionLogo}
+                      alt={`${opportunity.source} logo`}
+                      className="max-h-[26px] max-w-[66px] object-contain object-right"
+                    />
+                  </div>
+                </div>
+
+                <div className="mt-4 grid grid-cols-2 gap-x-5 gap-y-3 border-y border-[#262626] py-3">
+
+                  <div>
+                    <div className="text-[7px] uppercase tracking-[0.12em] text-[#666]">
+                      Current Price
+                    </div>
+                    <div className="mt-1 text-[11px] font-semibold text-white">
+                      {formatMoney(opportunity.currentPrice)}
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="text-[7px] uppercase tracking-[0.12em] text-[#666]">
+                      Max Bid
+                    </div>
+                    <div className="mt-1 text-[11px] font-semibold text-[#d4af37]">
+                      {formatMoney(opportunity.recommendedMaxBid)}
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="text-[7px] uppercase tracking-[0.12em] text-[#666]">
+                      AT Retail
+                    </div>
+                    <div className="mt-1 text-[11px] font-semibold text-white">
+                      {formatMoney(opportunity.atRetail)}
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="text-[7px] uppercase tracking-[0.12em] text-[#666]">
+                      Est. Profit
+                    </div>
+                    <div className="mt-1 text-[11px] font-semibold text-[#3fe187]">
+                      {formatMoney(opportunity.potentialProfit)}
+                    </div>
+                  </div>
+
+                </div>
+
+                <div className="mt-3 grid grid-cols-3 gap-2">
+
+                  <div>
+                    <div className="text-[7px] uppercase tracking-[0.1em] text-[#666]">
+                      ROI
+                    </div>
+                    <div className="mt-1 text-[11px] font-semibold text-[#71d63f]">
+                      {opportunity.roi}%
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="text-[7px] uppercase tracking-[0.1em] text-[#666]">
+                      Days to Sell
+                    </div>
+                    <div className="mt-1 text-[11px] font-semibold text-white">
+                      {opportunity.daysToSell}
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="text-[7px] uppercase tracking-[0.1em] text-[#666]">
+                      Risk
+                    </div>
+                    <div className="mt-1 text-[11px] font-semibold text-white">
+                      {opportunity.riskLevel}
+                    </div>
+                  </div>
+
+                </div>
+
+                <div className="mt-4 flex items-center gap-2">
+                  <DecisionBadge decision={opportunity.decision} />
+
+                  <Link
+                    href={`/market-intelligence/opportunities/${opportunity.id}`}
+                    className="flex h-9 flex-1 items-center justify-center rounded-md border border-[#66571d] bg-[#151307] text-[8px] font-semibold uppercase tracking-[0.12em] text-[#d4af37] transition hover:border-[#d4af37] hover:bg-[#211c08]"
+                  >
+                    View Analysis
+                  </Link>
+                </div>
+
+              </div>
+            </article>
+          ))}
+        </section>
+
         {/* TABLE */}
-        <section className="mt-3 overflow-hidden rounded-xl border border-[#d4af37]/65 bg-[#0d0f10]">
+        <section className="mt-3 hidden overflow-hidden rounded-xl border border-[#d4af37]/65 bg-[#0d0f10] md:block">
           <div className="overflow-x-auto">
             <table className="w-full min-w-[1280px] border-collapse">
               <thead>

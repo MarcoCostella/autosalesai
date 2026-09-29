@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Button from "@/components/ui/Button";
 import BrandName from "@/components/ui/BrandName";
 
@@ -75,7 +75,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className="w-full max-w-[430px] justify-self-center rounded-[22px] border border-brand-gold/70 bg-black/66 p-5 shadow-[0_0_80px_rgba(212,175,55,0.24)] backdrop-blur-md lg:justify-self-end">
+          <div className="mx-auto w-full max-w-[430px] justify-self-center rounded-[22px] border border-brand-gold/70 bg-black/66 p-4 sm:p-5 shadow-[0_0_80px_rgba(212,175,55,0.24)] backdrop-blur-md lg:ml-auto lg:mr-0 lg:justify-self-end">
             <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-5">
               <div className="flex items-center gap-4">
                 <div className="flex h-13 w-13 items-center justify-center rounded-full border border-brand-gold text-lg font-black text-brand-gold">
@@ -172,3 +172,7 @@ export default function HeroSection() {
     </section>
   );
 }
+
+
+
+

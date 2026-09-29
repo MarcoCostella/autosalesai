@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 import MarketAppShell from "@/components/market-intelligence/MarketAppShell";
 
@@ -291,7 +291,7 @@ export default function MarketDashboardPage() {
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="grid w-full grid-cols-1 gap-3 sm:flex sm:w-auto sm:items-center">
             <button
               type="button"
               className="flex h-10 min-w-[120px] items-center justify-between rounded-md border border-[#38342b] bg-[#101214] px-4 text-[11px] text-[#c5c5c5]"
@@ -318,11 +318,11 @@ export default function MarketDashboardPage() {
           </div>
         </div>
 
-        <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-5">
+        <section className="grid grid-cols-2 gap-2 sm:gap-4 xl:grid-cols-5">
           {kpis.map((item) => (
             <article
               key={item.label}
-              className="rounded-xl border border-[#d4af37]/70 bg-[linear-gradient(145deg,#141617_0%,#0e1011_100%)] px-5 py-5 shadow-[0_8px_30px_rgba(0,0,0,0.22)] transition duration-200 hover:border-[#d4af37]"
+              className="rounded-xl border border-[#d4af37]/70 bg-[linear-gradient(145deg,#141617_0%,#0e1011_100%)] px-4 py-3.5 sm:px-5 sm:py-5 shadow-[0_8px_30px_rgba(0,0,0,0.22)] transition duration-200 hover:border-[#d4af37]"
             >
               <div className="flex items-center gap-3">
                 <div className="text-[#d4af37]">
@@ -334,7 +334,7 @@ export default function MarketDashboardPage() {
                 </span>
               </div>
 
-              <div className="mt-5 text-[28px] font-semibold tracking-[-0.035em] text-white">
+              <div className="mt-3 text-[25px] font-semibold tracking-[-0.035em] text-white sm:mt-5 sm:text-[28px]">
                 {item.value}
               </div>
 
@@ -362,61 +362,67 @@ export default function MarketDashboardPage() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 xl:grid-cols-[1fr_1fr_1fr_1.55fr]">
+          <div className="grid grid-cols-1 gap-3 xl:grid-cols-[1fr_1fr_1fr_1.55fr] xl:gap-4">
             {auctions.map((auction) => (
               <article
                 key={auction.name}
-                className="rounded-lg border border-[#d4af37]/65 bg-[#101214] p-5 transition duration-200 hover:border-[#d4af37]"
+                className="rounded-lg border border-[#d4af37]/65 bg-[#101214] p-3 transition duration-200 hover:border-[#d4af37] xl:p-5"
               >
-                <div className="flex h-[50px] items-center">
-                  <img
-                    src={auction.logo}
-                    alt={`${auction.name} logo`}
-                    className="max-h-[48px] max-w-[150px] object-contain object-left"
-                  />
-                </div>
+                <div className="grid grid-cols-[1fr_auto] items-center gap-3 xl:block">
 
-                <div className="mt-5 text-[28px] font-semibold tracking-[-0.035em] text-white">
-                  {auction.opportunities}
-                </div>
-
-                <div className="mt-1 text-[9px] text-[#6f6f6f]">
-                  opportunities
-                </div>
-
-                <div className="mt-5 grid grid-cols-2 gap-4">
                   <div>
-                    <div className="text-[12px] font-semibold text-[#3fe187]">
-                      {auction.estimatedProfit}
+                    <div className="flex h-[30px] items-center xl:h-[50px]">
+                      <img
+                        src={auction.logo}
+                        alt={`${auction.name} logo`}
+                        className="max-h-[30px] max-w-[105px] object-contain object-left xl:max-h-[48px] xl:max-w-[150px]"
+                      />
                     </div>
 
-                    <div className="mt-1 text-[8px] text-[#777777]">
-                      Est. Profit
+                    <div className="mt-2 text-[20px] font-semibold tracking-[-0.035em] text-white xl:mt-5 xl:text-[28px]">
+                      {auction.opportunities}
+                    </div>
+
+                    <div className="mt-0.5 text-[8px] text-[#6f6f6f] xl:mt-1 xl:text-[9px]">
+                      opportunities
                     </div>
                   </div>
 
-                  <div>
-                    <div className="text-[12px] font-semibold text-[#3fe187]">
-                      {auction.averageProfit}
+                  <div className="grid min-w-[105px] gap-3 border-l border-[#292929] pl-3 xl:mt-5 xl:grid-cols-2 xl:gap-4 xl:border-l-0 xl:pl-0">
+                    <div>
+                      <div className="text-[11px] font-semibold text-[#3fe187] xl:text-[12px]">
+                        {auction.estimatedProfit}
+                      </div>
+
+                      <div className="mt-1 text-[7px] text-[#777777] xl:text-[8px]">
+                        Est. Profit
+                      </div>
                     </div>
 
-                    <div className="mt-1 text-[8px] text-[#777777]">
-                      Avg Profit
+                    <div>
+                      <div className="text-[11px] font-semibold text-[#3fe187] xl:text-[12px]">
+                        {auction.averageProfit}
+                      </div>
+
+                      <div className="mt-1 text-[7px] text-[#777777] xl:text-[8px]">
+                        Avg Profit
+                      </div>
                     </div>
                   </div>
+
                 </div>
               </article>
             ))}
 
-            <div className="flex min-h-[205px] items-center justify-center gap-8 rounded-lg border border-[#d4af37]/65 bg-[#101214] p-5 transition duration-200 hover:border-[#d4af37]">
+            <div className="flex min-h-[205px] flex-col items-center justify-center gap-5 rounded-lg border border-[#d4af37]/65 bg-[#101214] p-4 transition duration-200 hover:border-[#d4af37] xl:flex-row xl:gap-8 xl:p-5">
               <div
-                className="relative flex h-[142px] w-[142px] shrink-0 items-center justify-center rounded-full"
+                className="relative flex h-[120px] w-[120px] shrink-0 items-center justify-center rounded-full xl:h-[142px] xl:w-[142px]"
                 style={{
                   background:
                     "conic-gradient(#3b82f6 0deg 133deg,#7557d8 133deg 237deg,#d4af37 237deg 360deg)",
                 }}
               >
-                <div className="flex h-[92px] w-[92px] flex-col items-center justify-center rounded-full bg-[#0c0e0f]">
+                <div className="flex h-[78px] w-[78px] flex-col items-center justify-center rounded-full bg-[#0c0e0f] xl:h-[92px] xl:w-[92px]">
                   <span className="text-[20px] font-semibold text-white">
                     {"\u00A3"}468k
                   </span>
@@ -427,7 +433,7 @@ export default function MarketDashboardPage() {
                 </div>
               </div>
 
-              <div className="min-w-[200px] space-y-4">
+              <div className="w-full space-y-3 xl:min-w-[200px] xl:w-auto xl:space-y-4">
                 <div className="grid grid-cols-[10px_1fr_35px_50px] items-center gap-2 text-[9px]">
                   <span className="h-2 w-2 rounded-sm bg-[#3b82f6]" />
                   <span className="text-[#c7c7c7]">BCA</span>
@@ -479,7 +485,7 @@ export default function MarketDashboardPage() {
                 key={vehicle.id}
                 className="overflow-hidden rounded-lg border border-[#d4af37]/65 bg-[#101214] transition duration-200 hover:-translate-y-0.5 hover:border-[#d4af37]"
               >
-                <div className="relative h-[150px] overflow-hidden bg-[#171717]">
+                <div className="relative h-[110px] overflow-hidden bg-[#171717] sm:h-[150px]">
                   <Link
                     href={`/market-intelligence/opportunities/${vehicle.id}`}
                     className="absolute inset-0 z-[1]"
@@ -570,3 +576,10 @@ export default function MarketDashboardPage() {
     </MarketAppShell>
   );
 }
+
+
+
+
+
+
+

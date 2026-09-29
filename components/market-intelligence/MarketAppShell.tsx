@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import type { ReactNode } from "react";
 import MarketSidebar from "./MarketSidebar";
@@ -50,7 +50,9 @@ export default function MarketAppShell({
   return (
     <div className="min-h-screen bg-[#080a0c] text-white">
       <div className="flex min-h-screen">
-        <MarketSidebar />
+        <div className="hidden lg:block">
+          <MarketSidebar />
+        </div>
 
         <div className="min-w-0 flex-1">
           {/* Market application header */}

@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import MarketAppShell from "@/components/market-intelligence/MarketAppShell";
@@ -102,8 +102,8 @@ export default async function MarketAnalysisPage({
         </div>
 
         {/* KPI CARDS */}
-        <section className="mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          <article className="rounded-xl border border-[#d4af37]/65 bg-[#101214] p-5">
+        <section className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-2 xl:grid-cols-4">
+          <article className="rounded-xl border border-[#d4af37]/65 bg-[#101214] p-3 xl:p-5">
             <div className="text-[8px] text-[#777]">
               AT Retail
             </div>
@@ -117,7 +117,7 @@ export default async function MarketAnalysisPage({
             </div>
           </article>
 
-          <article className="rounded-xl border border-[#d4af37]/65 bg-[#101214] p-5">
+          <article className="rounded-xl border border-[#d4af37]/65 bg-[#101214] p-3 xl:p-5">
             <div className="text-[8px] text-[#777]">
               Days to Sell
             </div>
@@ -131,7 +131,7 @@ export default async function MarketAnalysisPage({
             </div>
           </article>
 
-          <article className="rounded-xl border border-[#d4af37]/65 bg-[#101214] p-5">
+          <article className="rounded-xl border border-[#d4af37]/65 bg-[#101214] p-3 xl:p-5">
             <div className="text-[8px] text-[#777]">
               Market Score
             </div>
@@ -145,7 +145,7 @@ export default async function MarketAnalysisPage({
             </div>
           </article>
 
-          <article className="rounded-xl border border-[#d4af37]/65 bg-[#101214] p-5">
+          <article className="rounded-xl border border-[#d4af37]/65 bg-[#101214] p-3 xl:p-5">
             <div className="text-[8px] text-[#777]">
               Price Position
             </div>
@@ -247,7 +247,7 @@ export default async function MarketAnalysisPage({
               </span>
             </div>
 
-            <div className="relative mt-4 h-[210px]">
+            <div className="relative mt-4 h-[160px] sm:h-[210px]">
               <div className="absolute inset-0 flex flex-col justify-between">
                 {[40, 30, 20, 10, 0].map((value) => (
                   <div
@@ -446,3 +446,5 @@ export default async function MarketAnalysisPage({
     </MarketAppShell>
   );
 }
+
+

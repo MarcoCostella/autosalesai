@@ -1,8 +1,9 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navigation = [
   ["Home", "/"],
@@ -13,8 +14,21 @@ const navigation = [
   ["Book Demo", "/book-demo"]
 ];
 
+const marketNavigation = [
+  ["Overview", "/market-intelligence/dashboard"],
+  ["Opportunities", "/market-intelligence/opportunities"],
+  ["Auctions", "/market-intelligence/auctions"],
+  ["Portfolio", "/market-intelligence/portfolio"],
+  ["Watchlist", "/market-intelligence/watchlist"],
+  ["Analytics", "/market-intelligence/analytics"],
+  ["Reports", "/market-intelligence/reports"],
+  ["Settings", "/market-intelligence/settings"]
+];
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const inMarketIntelligence = pathname.startsWith("/market-intelligence");
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-black/95 backdrop-blur">
@@ -66,21 +80,47 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className="border-t border-white/10 bg-black px-5 py-6 lg:hidden">
-          <nav className="flex flex-col gap-4">
+        <div className="border-t border-white/10 bg-black px-5 py-4 lg:hidden">
+          <nav className="flex flex-col gap-2">
             {navigation.map(([label, href]) => (
               <Link
                 key={href}
                 href={href}
                 onClick={() => setMenuOpen(false)}
-                className="border border-white/10 px-5 py-4 text-[13px] font-bold uppercase tracking-[0.18em] text-white transition hover:border-brand-gold hover:text-brand-gold"
+                className="border border-white/10 px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.14em] text-white transition hover:border-brand-gold hover:text-brand-gold"
               >
                 {label}
               </Link>
             ))}
+
+            {inMarketIntelligence && (
+              <div className="mt-2 border-t border-brand-gold/30 pt-5">
+                <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-brand-gold">
+                  Market Intelligence
+                </div>
+
+                <div className="grid grid-cols-2 gap-2">
+                  {marketNavigation.map(([label, href]) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      onClick={() => setMenuOpen(false)}
+                      className={`border px-3 py-3 text-[10px] font-bold uppercase tracking-[0.10em] transition ${
+                        pathname === href
+                          ? "border-brand-gold bg-brand-gold/10 text-brand-gold"
+                          : "border-white/10 text-white hover:border-brand-gold hover:text-brand-gold"
+                      }`}
+                    >
+                      {label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </nav>
         </div>
       )}
     </header>
   );
 }
+

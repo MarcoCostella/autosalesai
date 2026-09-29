@@ -1,5 +1,7 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
+import FAQSection from "@/components/homepage/FAQSection";
+import PlatformTicker from "@/components/homepage/PlatformTicker";
 
 const GOLD = "#F5B800";
 const CYAN = "#00BDF2";
@@ -23,16 +25,13 @@ export default function HomePage() {
             className="object-cover object-[59%_48%]"
           />
 
-          {/* darkening to reproduce concept */}
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/55 to-black/10" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/65" />
-
-          {/* stronger left readability */}
           <div className="absolute inset-y-0 left-0 w-[42%] bg-black/35" />
         </div>
 
         <div className="relative mx-auto max-w-[1536px] px-8 pb-7 pt-7 xl:px-10">
-          <div className="grid min-h-[390px] grid-cols-[560px_1fr] gap-4">
+          <div className="grid min-h-[390px] grid-cols-1 gap-4 lg:grid-cols-[560px_1fr]">
 
             {/* LEFT HERO */}
             <div className="relative z-20 pt-2">
@@ -56,30 +55,36 @@ export default function HomePage() {
                 cars, price with confidence, sell faster and grow their business.
               </p>
 
-              {/* FOUR BENEFITS */}
-              <div className="mt-6 grid grid-cols-4 gap-0">
-                <Benefit
-                  icon="car"
+              {/* HERO PHOTOGRAPHIC BENEFITS */}
+              <div className="mt-6 grid grid-cols-2 gap-3 xl:grid-cols-5">
+                <HeroPhotoBenefit
+                  image="/images/how-it-works/feature-find-stock.JPG"
                   title="Find Better Stock"
-                  text="Live auction data, market insights and AI recommendations"
+                  text="Auction data, market insights and AI recommendations"
                 />
 
-                <Benefit
-                  icon="target"
+                <HeroPhotoBenefit
+                  image="/images/how-it-works/feature-price-confidence.JPG"
                   title="Price with Confidence"
                   text="Real market valuations, profit & ROI analysis"
                 />
 
-                <Benefit
-                  icon="chart"
+                <HeroPhotoBenefit
+                  image="/images/how-it-works/feature-sell-faster.JPG"
                   title="Sell Faster"
                   text="AI-powered descriptions, buyer targeting and enquiry responses"
                 />
 
-                <Benefit
-                  icon="shield"
+                <HeroPhotoBenefit
+                  image="/images/how-it-works/feature-reduce-risk.JPG"
                   title="Reduce Risk"
                   text="Condition alerts, market trends and demand forecasting"
+                />
+
+                <HeroPhotoBenefit
+                  image="/images/how-it-works/feature-grow-business.JPG"
+                  title="Grow Your Business"
+                  text="Practical tools and insights designed for independent dealers"
                 />
               </div>
             </div>
@@ -207,60 +212,65 @@ export default function HomePage() {
           </div>
 
           {/* =====================================================
-              METRIC STRIP
+              INTELLIGENCE CAPABILITY STRIP
           ===================================================== */}
-          <div className="relative z-30 mt-0 grid grid-cols-6 rounded-[13px] border border-[#A87700] bg-[#03090b]/95 px-3 py-4">
+          <div className="relative z-30 mt-4 grid grid-cols-2 gap-3 rounded-[16px] border border-[#A87700]/80 bg-[#03090b]/95 p-3 md:grid-cols-3 xl:grid-cols-6">
 
-            <Statistic
-              icon="car"
-              value="15,000+"
-              label="Vehicles analysed daily"
+            <PhotoMetric
+              image="/images/how-it-works/feature-auction-intelligence.JPG"
+              title="BCA + Manheim"
+              subtitle="Auction Intelligence"
             />
 
-            <Statistic
-              icon="hammer"
-              value="50+"
-              label="Auction sources"
+            <PhotoMetric
+              image="/images/how-it-works/feature-24-7-support.JPG"
+              title="24/7"
+              subtitle="AI Enquiry Coverage"
             />
 
-            <Statistic
-              icon="users"
-              value="250+"
-              label="Dealers already using AutoSalesAI"
+            <PhotoMetric
+              image="/images/how-it-works/feature-vehicle-market-analysis.JPG"
+              title="Multi-Source"
+              subtitle="Vehicle & Market Analysis"
             />
 
-            <Statistic
-              icon="chart"
-              value="+28%"
-              label="Average increase in gross profit"
+            <PhotoMetric
+              image="/images/how-it-works/feature-target-max-bid.JPG"
+              title="Target + Max Bid"
+              subtitle="Acquisition Discipline"
             />
 
-            <Statistic
-              icon="clock"
-              value="24/7"
-              label="AI working for you"
+            <PhotoMetric
+              image="/images/how-it-works/feature-decision-support.JPG"
+              title="Buy / Review / Avoid"
+              subtitle="Decision Support"
             />
 
-            <Statistic
-              icon="star"
-              value="98%"
-              label="Customer satisfaction"
-              last
+            <PhotoMetric
+              image="/images/how-it-works/feature-independents.JPG"
+              title="UK Dealers"
+              subtitle="Purpose-Built Platform"
             />
-          </div>
+
+                    </div>
         </div>
       </section>
+
+      {/* =========================================================
+          PLATFORM ECOSYSTEM TICKER
+      ========================================================= */}
+      <PlatformTicker />
 
       {/* =========================================================
           PRODUCT PANELS
       ========================================================= */}
       <section className="bg-[#020506]">
-        <div className="mx-auto grid max-w-[1536px] grid-cols-2 gap-3 px-8 py-3 xl:px-10">
+        <div className="mx-auto grid max-w-[1536px] grid-cols-1 gap-3 px-5 py-3 md:px-8 lg:grid-cols-2 xl:px-10">
 
           {/* SALES ASSISTANT */}
-          <div className="relative min-h-[352px] overflow-hidden rounded-[12px] border border-[#987000] bg-[radial-gradient(circle_at_55%_50%,rgba(181,130,0,0.18),rgba(22,17,3,0.82)_42%,rgba(8,8,3,0.97)_100%)] p-5">
+          <div className="relative min-h-[390px] overflow-hidden rounded-[12px] border border-[#987000] bg-[radial-gradient(circle_at_55%_50%,rgba(181,130,0,0.18),rgba(22,17,3,0.82)_42%,rgba(8,8,3,0.97)_100%)] p-5">
 
-            <div className="grid h-full grid-cols-[44%_30%_26%]">
+            <div className="grid h-full grid-cols-1 lg:grid-cols-[44%_30%_26%]">
 
               <div>
                 <div
@@ -282,19 +292,26 @@ export default function HomePage() {
                 </p>
 
                 <div className="mt-4 space-y-[8px]">
-                  <Check text="Instant enquiry responses (web, phone, social)" />
+                  <Check text="Instant digital enquiry responses" />
                   <Check text="Qualify buyers and understand their needs" />
                   <Check text="Book viewings and test drives" />
                   <Check text="Generate tailored vehicle descriptions" />
                   <Check text="Follow-up messages that convert" />
-                  <Check text="Works across your website, WhatsApp, email and more" />
+                  <Check text="Works alongside your website and existing sales process" />
                 </div>
+
+                <a
+                  href="/ai-sales-assistant"
+                  className="mt-5 inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.12em] text-[#f5b800] transition-all hover:gap-3 hover:text-[#ffd34d]"
+                >
+                  EXPLORE AI SALES ASSISTANT <span>→</span>
+                </a>
               </div>
 
               {/* PHONE */}
-              <div className="flex items-center justify-center">
-                <div className="h-[315px] w-[165px] rounded-[26px] border border-white/30 bg-black p-[7px] shadow-2xl">
-                  <div className="h-full rounded-[19px] border border-white/10 bg-[#071011] px-3 py-3">
+              <div className="mt-7 flex items-center justify-center lg:mt-0">
+                <div className="h-[320px] w-[160px] rounded-[24px] border border-white/30 bg-black p-[7px] shadow-2xl sm:h-[350px] sm:w-[175px] lg:h-[350px] lg:w-[175px]">
+                  <div className="h-full overflow-hidden rounded-[19px] border border-white/10 bg-[#071011] px-3 py-3">
 
                     <div className="text-center text-[7px] text-white/50">
                       9:41
@@ -393,7 +410,7 @@ export default function HomePage() {
           {/* MARKET INTELLIGENCE */}
           <div className="relative min-h-[352px] overflow-hidden rounded-[12px] border border-[#0096c9] bg-[radial-gradient(circle_at_70%_50%,rgba(0,116,171,0.20),rgba(2,15,21,0.9)_50%,rgba(1,8,11,1)_100%)] p-5">
 
-            <div className="grid h-full grid-cols-[40%_60%] gap-4">
+            <div className="grid h-full grid-cols-1 gap-4 lg:grid-cols-[40%_60%]">
 
               <div>
                 <div
@@ -409,19 +426,26 @@ export default function HomePage() {
                 </h2>
 
                 <p className="mt-2 text-[12px] leading-[1.5] text-white/84">
-                  Access live auction data, pricing intelligence and profit
+                  Access auction data, pricing intelligence and profit
                   analytics to help you buy the right cars at the right price —
                   before your competition.
                 </p>
 
                 <div className="mt-4 space-y-[8px]">
-                  <BlueCheck text="Live auction & stock data (BCA, Manheim + more)" />
+                  <BlueCheck text="Auction & stock intelligence (BCA, Manheim + more)" />
                   <BlueCheck text="Real market valuations and pricing trends" />
                   <BlueCheck text="Profit & ROI calculations" />
                   <BlueCheck text="Demand forecasting and market insights" />
                   <BlueCheck text="Risk and condition analysis" />
                   <BlueCheck text="Spot opportunities before others" />
                 </div>
+
+                <a
+                  href="/market-intelligence"
+                  className="mt-5 inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.12em] text-[#00c8ff] transition-all hover:gap-3 hover:text-[#66ddff]"
+                >
+                  EXPLORE MARKET INTELLIGENCE <span>→</span>
+                </a>
               </div>
 
               {/* DASHBOARD MOCKUP */}
@@ -434,7 +458,7 @@ export default function HomePage() {
                     </p>
 
                     <div className="rounded bg-white/5 px-2 py-1 text-[7px] text-white/60">
-                      Last 7 days⌄
+                      Last 7 days ⌄
                     </div>
                   </div>
 
@@ -461,7 +485,7 @@ export default function HomePage() {
                     />
                   </div>
 
-                  <div className="mt-2 grid grid-cols-[1.15fr_.85fr] gap-1.5">
+                  <div className="mt-2 grid grid-cols-1 gap-1.5 sm:grid-cols-[1.15fr_.85fr]">
 
                     <div className="rounded border border-white/10 bg-white/[0.035] p-2">
                       <p className="text-[8px] font-semibold">
@@ -591,43 +615,859 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================
-          TRUST / CREDIBILITY STRIP
+          HOW AUTOSALESAI WORKS
       ========================================================= */}
-      <section className="border-t border-white/10 bg-[#010506]">
-        <div className="mx-auto max-w-[1536px] px-8 py-3 xl:px-10">
+      <section className="border-t border-white/10 bg-[#020506] py-6">
+        <div className="mx-auto max-w-[1536px] px-6 md:px-8 xl:px-10">
 
-          <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-white/80">
-            Trusted By Independent Dealers Across The UK
-          </p>
+          {/* TOP HERO */}
+          <div className="relative overflow-hidden rounded-[18px] border border-white/10 bg-black">
+            <Image
+              src="/images/how-it-works/how-it-works-hero.JPG"
+              alt="Premium used car dealership and vehicle"
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
+            />
 
-          <div className="mt-3 grid grid-cols-[1.6fr_.95fr] items-center">
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/45" />
 
-            <div className="grid grid-cols-5 items-center gap-7 border-r border-white/10 pr-8 text-center">
-              <BrandText name="AutoTrader" />
-              <BrandText name="MOTORTRADER" />
-              <BrandText name="CarDealer." />
-              <BrandText name="AM UsedCar" />
-              <BrandText name="blackhorse" />
+            <div className="relative grid min-h-[420px] gap-8 px-7 py-8 lg:grid-cols-[0.9fr_1.25fr_0.75fr] lg:px-10">
+
+              <div className="relative z-20 flex flex-col justify-center">
+                <p className="text-[11px] font-bold uppercase tracking-[0.26em] text-[#F5B800]">
+                  How AutoSalesAI Works
+                </p>
+
+                <h2 className="mt-4 max-w-[520px] font-heading text-[44px] font-bold leading-[0.98] tracking-[-0.04em] md:text-[58px]">
+                  From acquisition
+                  <br />
+                  opportunity <span className="text-[#F5B800]">to</span>
+                  <br />
+                  <span className="text-[#F5B800]">retail sale.</span>
+                </h2>
+
+                <p className="mt-5 max-w-[500px] text-[15px] leading-6 text-white/80">
+                  A complete, connected platform that helps independent dealers
+                  find the right stock, make smarter buying decisions, engage every
+                  customer and improve commercial performance.
+                </p>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Link
+                    href="/book-demo"
+                    className="inline-flex items-center justify-center rounded-full bg-[#F5B800] px-6 py-3 text-[12px] font-bold uppercase tracking-[0.12em] text-black transition hover:bg-[#ffd24d]"
+                  >
+                    Book A Demo
+                    <span className="ml-3 text-lg">→</span>
+                  </Link>
+
+                  <Link
+                    href="/ai-sales-assistant"
+                    className="inline-flex items-center justify-center rounded-full border border-white/25 bg-black/40 px-6 py-3 text-[12px] font-bold uppercase tracking-[0.10em] text-white transition hover:border-[#F5B800]/70 hover:text-[#F5B800]"
+                  >
+                    Explore The Platform →
+                  </Link>
+                </div>
+              </div>
+
+              <div className="hidden lg:block" />
+
+              <div className="relative z-20 flex flex-col justify-center gap-3">
+                <HowBenefit
+                  icon="chart"
+                  title="Stronger Buying Discipline"
+                  text="Better information before capital is committed."
+                />
+
+                <HowBenefit
+                  icon="clock"
+                  title="24/7 Customer Coverage"
+                  text="Engage enquiries whenever customers are browsing."
+                />
+
+                <HowBenefit
+                  icon="target"
+                  title="Data-Driven Decisions"
+                  text="Clearer evidence. More consistent decisions."
+                />
+
+                <HowBenefit
+                  icon="users"
+                  title="Built For UK Dealers"
+                  text="Designed around independent used-car retail."
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* BUY SMARTER / SELL SMARTER JOURNEY */}
+          <div className="mt-4 hidden grid-cols-7 gap-3 xl:grid">
+
+            <div className="col-span-4 flex items-center rounded-[10px] border border-[#F5B800]/25 bg-[#F5B800]/[0.04] px-5 py-3">
+              <div className="h-2 w-2 shrink-0 rounded-full bg-[#F5B800] shadow-[0_0_12px_rgba(245,184,0,0.65)]" />
+
+              <div className="ml-3">
+                <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#F5B800]">
+                  Buy Smarter
+                </p>
+                <p className="mt-0.5 text-[11px] text-white/50">
+                  Acquisition Intelligence
+                </p>
+              </div>
+
+              <div className="mx-5 h-px flex-1 bg-gradient-to-r from-[#F5B800]/45 to-transparent" />
+
+              <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-white/35">
+                Source → Analyse → Decide → Retail
+              </p>
             </div>
 
-            <div className="grid grid-cols-3 gap-4 pl-7">
-              <TrustItem
-                icon="shield"
-                title="No long-term contracts"
-                text="Cancel anytime"
+            <div className="col-span-3 flex items-center rounded-[10px] border border-cyan-400/25 bg-cyan-400/[0.04] px-5 py-3">
+              <div className="h-2 w-2 shrink-0 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.65)]" />
+
+              <div className="ml-3">
+                <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-cyan-400">
+                  Sell Smarter
+                </p>
+                <p className="mt-0.5 text-[11px] text-white/50">
+                  AI Sales Assistant
+                </p>
+              </div>
+
+              <div className="mx-5 h-px flex-1 bg-gradient-to-r from-cyan-400/45 to-transparent" />
+
+              <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-white/35">
+                Engage → Convert → Learn
+              </p>
+            </div>
+
+          </div>
+
+          {/* WORKFLOW CARDS */}
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
+
+            <HowImageStep
+              image="/images/how-it-works/source.JPG"
+              title="Source"
+              text="Auction data, dealer stock and market opportunities."
+              footer="Auction Data"
+            />
+
+            <HowImageStep
+              image="/images/how-it-works/analyse.JPG"
+              title="Analyse"
+              text="Market position, condition, preparation and profitability."
+              footer="Market Insight"
+            />
+
+            <HowImageStep
+              image="/images/how-it-works/decide.JPG"
+              title="Decide"
+              text="Target Bid, Maximum Bid and clear BUY / REVIEW / AVOID recommendations."
+              footer="AI Recommendations"
+            />
+
+            <HowImageStep
+              image="/images/how-it-works/retail.JPG"
+              title="Retail"
+              text="Bring the right vehicles to your forecourt with confidence."
+              footer="Stock Performance"
+            />
+
+            <HowImageStep
+              image="/images/how-it-works/engage.JPG"
+              title="Engage"
+              text="AI engages digital enquiries and helps customers find the right vehicle."
+              footer="24/7 Response"
+            />
+
+            <HowImageStep
+              image="/images/how-it-works/convert.JPG"
+              title="Convert"
+              text="Qualify buyers, capture part exchange details and book appointments."
+              footer="More Sales"
+            />
+
+            <HowImageStep
+              image="/images/how-it-works/learn.JPG"
+              title="Learn"
+              text="Real outcomes feed back into smarter buying and sales decisions."
+              footer="Continuous Improvement"
+            />
+          </div>
+
+          <div className="mt-5 flex items-center gap-4">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#8d6b17] to-[#8d6b17]" />
+
+            <p className="text-center text-[10px] font-bold uppercase tracking-[0.36em] text-[#F5B800]">
+              A Continuous Cycle Of Dealer Growth
+            </p>
+
+            <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#8d6b17] to-[#8d6b17]" />
+          </div>
+
+          {/* PREMIUM TRUST / DEALER BENEFITS */}
+          <div className="mt-7 grid gap-4 border-t border-white/10 pt-7 sm:grid-cols-2 xl:grid-cols-4">
+
+            <HowTrustImageCard
+              image="/images/how-it-works/feature-contracts.JPG"
+              title="No Long-Term Contracts"
+              text="Flexible terms built around your dealership."
+            />
+
+            <HowTrustImageCard
+              image="/images/how-it-works/feature-uk-support.JPG"
+              title="UK-Based Support"
+              text="Practical support from people who understand automotive retail."
+            />
+
+            <HowTrustImageCard
+              image="/images/how-it-works/feature-fast-setup.JPG"
+              title="Fast Setup"
+              text="Get AutoSalesAI working alongside your existing dealership operation quickly."
+            />
+
+            <HowTrustImageCard
+              image="/images/how-it-works/feature-independents.JPG"
+              title="Built For Independents"
+              text="Purpose-built around the commercial realities of UK independent dealers."
+            />
+
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          PRICING / PLATFORM OPTIONS — HERO + PRICING BLEND
+      ========================================================= */}
+      <section className="relative overflow-hidden border-t border-white/10 bg-[#020506] py-14">
+
+        {/* CINEMATIC HERO BACKGROUND */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[420px] overflow-hidden">
+
+          {/* FULL-WIDTH AUTOMOTIVE IMAGE */}
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-[0.72]"
+            style={{
+              backgroundImage: "url('/images/home/home-hero-car.png')",
+              backgroundPosition: "center 38%",
+            }}
+          />
+
+          {/* DARKEN LEFT / RIGHT EDGES */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-black/35" />
+
+          {/* KEEP HEADING LEGIBLE */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/30 to-[#020506]" />
+
+          {/* GOLD SUNSET GLOW */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(circle at 82% 18%, rgba(235,173,26,0.20), transparent 28%)",
+            }}
+          />
+
+        </div>
+
+        
+
+        {/* FINAL BOTTOM FADE INTO CARDS */}
+        <div className="pointer-events-none absolute inset-x-0 top-[285px] h-[170px] bg-gradient-to-b from-transparent to-[#020506]" />
+
+        <div className="relative mx-auto max-w-[1460px] px-6 xl:px-8">
+
+          {/* HEADING */}
+          <div className="mx-auto max-w-[850px] text-center">
+
+            <div className="flex items-center justify-center gap-5">
+              <div className="h-px w-[105px] bg-gradient-to-r from-transparent to-[#D6A400]" />
+
+              <p className="text-[10px] font-bold uppercase tracking-[0.34em] text-[#E0A800]">
+                Flexible Dealer Solutions
+              </p>
+
+              <div className="h-px w-[105px] bg-gradient-to-l from-transparent to-[#D6A400]" />
+            </div>
+
+            <h2 className="mt-4 text-[38px] font-bold tracking-[-0.04em] text-white md:text-[50px]">
+              Powerful tools.{" "}
+              <span className="text-[#E5AD18]">
+                Flexible pricing.
+              </span>
+            </h2>
+
+            <p className="mx-auto mt-4 max-w-[700px] text-[14px] leading-6 text-white/70">
+              Whether you want to capture more sales, buy smarter, or do both,
+              AutoSalesAI scales with your ambition.
+            </p>
+
+          </div>
+
+          {/* THREE PRODUCT CARDS */}
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+
+            {/* AI SALES ASSISTANT */}
+            <div className="group relative flex min-h-[575px] flex-col overflow-hidden rounded-[18px] border border-cyan-400/45 bg-[#031016]/95 shadow-[0_18px_55px_rgba(0,0,0,0.48)]">
+
+              <div className="relative h-[165px] overflow-hidden">
+                <img
+                  src="/images/how-it-works/how-it-works-hero.JPG"
+                  alt="AI Sales Assistant"
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#031016] via-[#031016]/20 to-transparent" />
+              </div>
+
+              <div className="flex flex-1 flex-col px-7 pb-7">
+
+                <div className="relative z-10 -mt-5 flex items-center gap-4">
+
+                  <div className="flex h-[56px] w-[56px] shrink-0 items-center justify-center rounded-[12px] border border-cyan-400 bg-[#07191f] text-[17px] font-black text-cyan-300 shadow-[0_0_20px_rgba(34,211,238,0.16)]">
+                    AI
+                  </div>
+
+                  <div>
+                    <h3 className="text-[23px] font-bold tracking-[-0.03em] text-white">
+                      AI Sales Assistant
+                    </h3>
+
+                    <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.19em] text-cyan-400">
+                      More enquiries. More sales.
+                    </p>
+                  </div>
+
+                </div>
+
+                <p className="mt-5 text-[13px] leading-6 text-white/70">
+                  Convert more enquiries into qualified buyers, appointments
+                  and sales with intelligent 24/7 automation.
+                </p>
+
+                <div className="my-5 h-px bg-white/15" />
+
+                <div className="space-y-[12px] text-[13px] text-white/90">
+                  <div className="flex gap-3"><span className="font-bold text-cyan-400">✓</span>24/7 lead handling</div>
+                  <div className="flex gap-3"><span className="font-bold text-cyan-400">✓</span>Vehicle recommendations</div>
+                  <div className="flex gap-3"><span className="font-bold text-cyan-400">✓</span>Buyer qualification</div>
+                  <div className="flex gap-3"><span className="font-bold text-cyan-400">✓</span>Appointment booking</div>
+                  <div className="flex gap-3"><span className="font-bold text-cyan-400">✓</span>Automated follow-up</div>
+                </div>
+
+                <div className="mt-auto pt-7">
+
+                  <p className="text-[16px] font-bold text-white">
+                    Pricing tailored to your dealership
+                  </p>
+
+                  <p className="mt-1 text-[11px] leading-5 text-white/55">
+                    Configured around your requirements and dealership operation.
+                  </p>
+
+                  <a
+                    href="/book-demo"
+                    className="mt-5 flex h-[50px] items-center justify-center rounded-[9px] border border-cyan-400 text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-300 transition hover:bg-cyan-400/10"
+                  >
+                    Discuss Pricing&nbsp;&nbsp; →
+                  </a>
+
+                </div>
+              </div>
+            </div>
+
+            {/* MARKET INTELLIGENCE */}
+            <div className="group relative flex min-h-[575px] flex-col overflow-hidden rounded-[18px] border border-cyan-400/45 bg-[#031016]/95 shadow-[0_18px_55px_rgba(0,0,0,0.48)]">
+
+              <div className="relative h-[165px] overflow-hidden">
+                <img
+                  src="/images/how-it-works/feature-vehicle-market-analysis.JPG"
+                  alt="Market Intelligence"
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#031016] via-[#031016]/20 to-transparent" />
+              </div>
+
+              <div className="flex flex-1 flex-col px-7 pb-7">
+
+                <div className="relative z-10 -mt-5 flex items-center gap-4">
+
+                  <div className="flex h-[56px] w-[56px] shrink-0 items-center justify-center rounded-[12px] border border-cyan-400 bg-[#07191f] text-[17px] font-black text-cyan-300 shadow-[0_0_20px_rgba(34,211,238,0.16)]">
+                    MI
+                  </div>
+
+                  <div>
+                    <h3 className="text-[23px] font-bold tracking-[-0.03em] text-white">
+                      Market Intelligence
+                    </h3>
+
+                    <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.19em] text-cyan-400">
+                      Better data. Smarter decisions.
+                    </p>
+                  </div>
+
+                </div>
+
+                <p className="mt-5 text-[13px] leading-6 text-white/70">
+                  Make stronger acquisition decisions using auction, valuation,
+                  liquidity, preparation and market intelligence.
+                </p>
+
+                <div className="my-5 h-px bg-white/15" />
+
+                <div className="space-y-[12px] text-[13px] text-white/90">
+                  <div className="flex gap-3"><span className="font-bold text-cyan-400">✓</span>BCA &amp; Manheim analysis</div>
+                  <div className="flex gap-3"><span className="font-bold text-cyan-400">✓</span>Market valuation</div>
+                  <div className="flex gap-3"><span className="font-bold text-cyan-400">✓</span>Liquidity &amp; stock-turn analysis</div>
+                  <div className="flex gap-3"><span className="font-bold text-cyan-400">✓</span>Target &amp; maximum bid</div>
+                  <div className="flex gap-3"><span className="font-bold text-cyan-400">✓</span>Preparation &amp; risk assessment</div>
+                </div>
+
+                <div className="mt-auto pt-7">
+
+                  <p className="text-[16px] font-bold text-white">
+                    Pricing tailored to your dealership
+                  </p>
+
+                  <p className="mt-1 text-[11px] leading-5 text-white/55">
+                    Configured around your stock profile and intelligence requirements.
+                  </p>
+
+                  <a
+                    href="/book-demo"
+                    className="mt-5 flex h-[50px] items-center justify-center rounded-[9px] border border-cyan-400 text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-300 transition hover:bg-cyan-400/10"
+                  >
+                    Discuss Pricing&nbsp;&nbsp; →
+                  </a>
+
+                </div>
+              </div>
+            </div>
+
+            {/* COMPLETE AUTOSALESAI */}
+            <div className="group relative flex min-h-[575px] flex-col overflow-hidden rounded-[18px] border border-[#F2BC00] bg-[#100c02]/95 shadow-[0_0_34px_rgba(242,188,0,0.15),0_18px_55px_rgba(0,0,0,0.5)]">
+
+              <div className="relative h-[165px] overflow-hidden">
+
+                <img
+                  src="/images/home/home-hero-car.png"
+                  alt="Complete AutoSalesAI"
+                  className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.03]"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-[#100c02] via-[#100c02]/20 to-transparent" />
+
+                <div className="absolute right-4 top-4 rounded-full bg-[#F2BC00] px-4 py-[7px] text-[9px] font-black uppercase tracking-[0.15em] text-black shadow-[0_0_18px_rgba(242,188,0,0.28)]">
+                  Complete Platform
+                </div>
+
+              </div>
+
+              <div className="flex flex-1 flex-col px-7 pb-7">
+
+                <div className="relative z-10 -mt-5 flex items-center gap-4">
+
+                  <div className="flex h-[56px] w-[56px] shrink-0 items-center justify-center rounded-[12px] border border-[#F2BC00] bg-[#171104] text-[17px] font-black text-[#F2BC00] shadow-[0_0_20px_rgba(242,188,0,0.18)]">
+                    AS
+                  </div>
+
+                  <div>
+                    <h3 className="text-[23px] font-bold tracking-[-0.03em] text-white">
+                      Complete AutoSalesAI
+                    </h3>
+
+                    <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.19em] text-[#F2BC00]">
+                      The full advantage.
+                    </p>
+                  </div>
+
+                </div>
+
+                <p className="mt-5 text-[13px] leading-6 text-white/70">
+                  Bring sales automation and acquisition intelligence together
+                  in one purpose-built platform for independent dealers.
+                </p>
+
+                <div className="my-5 h-px bg-[#F2BC00]/25" />
+
+                <div className="space-y-[12px] text-[13px] text-white/95">
+                  <div className="flex gap-3"><span className="font-bold text-[#F2BC00]">✓</span>AI Sales Assistant</div>
+                  <div className="flex gap-3"><span className="font-bold text-[#F2BC00]">✓</span>Market Intelligence</div>
+                  <div className="flex gap-3"><span className="font-bold text-[#F2BC00]">✓</span>Unified dealer platform</div>
+                  <div className="flex gap-3"><span className="font-bold text-[#F2BC00]">✓</span>Smarter buying &amp; selling</div>
+                  <div className="flex gap-3"><span className="font-bold text-[#F2BC00]">✓</span>Maximum profitability</div>
+                </div>
+
+                <div className="mt-auto pt-7">
+
+                  <p className="text-[16px] font-bold text-white">
+                    Pricing tailored to your dealership
+                  </p>
+
+                  <p className="mt-1 text-[11px] leading-5 text-white/55">
+                    Combine both AutoSalesAI platforms around your dealership.
+                  </p>
+
+                  <a
+                    href="/book-demo"
+                    className="mt-5 flex h-[50px] items-center justify-center rounded-[9px] bg-[#F2BC00] text-[11px] font-black uppercase tracking-[0.18em] text-black shadow-[0_0_24px_rgba(242,188,0,0.25)] transition hover:bg-[#ffd02a]"
+                  >
+                    Discuss Pricing&nbsp;&nbsp; →
+                  </a>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* BENEFIT STRIP — OPTION 2 PREMIUM IMAGE PANELS */}
+          <div className="mt-7 grid overflow-hidden rounded-[18px] border border-white/30 bg-[#030708] shadow-[0_20px_55px_rgba(0,0,0,0.42)] sm:grid-cols-2 lg:grid-cols-4">
+
+            {/* MORE LEADS */}
+            <div className="group relative h-[195px] overflow-hidden border-b border-white/20 sm:border-r lg:border-b-0">
+
+              <img
+                src="/images/how-it-works/how-it-works-hero.JPG"
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover object-center opacity-90 transition-transform duration-500 group-hover:scale-[1.035]"
               />
 
-              <TrustItem
-                icon="headset"
-                title="Dedicated support"
-                text="From real automotive experts"
+              <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/38 to-black/5" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/10" />
+
+              <div className="relative z-10 flex h-full items-center gap-6 px-7">
+
+                <div className="flex h-[86px] w-[86px] shrink-0 items-center justify-center rounded-[17px] border-2 border-[#F2BC00] bg-black/65 shadow-[0_0_30px_rgba(242,188,0,0.20)]">
+
+                  <div className="flex items-end gap-[5px]">
+                    <span className="h-[24px] w-[9px] rounded-[1px] bg-[#F2BC00]" />
+                    <span className="h-[39px] w-[9px] rounded-[1px] bg-[#F2BC00]" />
+                    <span className="h-[55px] w-[9px] rounded-[1px] bg-[#F2BC00]" />
+                  </div>
+
+                </div>
+
+                <div className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                  <p className="whitespace-nowrap text-[22px] font-bold tracking-[-0.025em] text-white">
+                    More leads
+                  </p>
+
+                  <p className="mt-2 whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.28em] text-white/75">
+                    Increase sales
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            {/* SMARTER STOCK */}
+            <div className="group relative h-[195px] overflow-hidden border-b border-white/20 lg:border-b-0 lg:border-r">
+
+              <img
+                src="/images/market-vehicles/audi-a3-s-line.JPG"
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover object-center opacity-90 transition-transform duration-500 group-hover:scale-[1.035]"
               />
 
-              <TrustItem
-                icon="chart"
-                title="Proven results"
-                text="More profit. Less risk."
+              <div className="absolute inset-0 bg-gradient-to-r from-[#001018]/90 via-black/35 to-black/5" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10" />
+
+              <div className="relative z-10 flex h-full items-center gap-6 px-7">
+
+                <div className="flex h-[86px] w-[86px] shrink-0 items-center justify-center rounded-[17px] border-2 border-cyan-400 bg-black/65 shadow-[0_0_30px_rgba(34,211,238,0.18)]">
+
+                  <div className="relative h-[42px] w-[58px]">
+
+                    <div className="absolute bottom-[5px] left-[6px] h-[24px] w-[46px] rounded-[8px] border-[4px] border-cyan-400" />
+
+                    <div className="absolute left-[13px] top-[1px] h-[22px] w-[32px] rounded-t-[13px] border-x-[4px] border-t-[4px] border-cyan-400" />
+
+                    <span className="absolute bottom-0 left-[10px] h-[9px] w-[9px] rounded-full bg-cyan-400" />
+
+                    <span className="absolute bottom-0 right-[10px] h-[9px] w-[9px] rounded-full bg-cyan-400" />
+
+                  </div>
+
+                </div>
+
+                <div className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                  <p className="whitespace-nowrap text-[22px] font-bold tracking-[-0.025em] text-white">
+                    Smarter stock
+                  </p>
+
+                  <p className="mt-2 whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.28em] text-white/75">
+                    Buy smarter
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            {/* HIGHER MARGINS */}
+            <div className="group relative h-[195px] overflow-hidden border-r border-white/20">
+
+              <img
+                src="/images/pricing/higher-margins.png"
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover object-center opacity-90 transition-transform duration-500 group-hover:scale-[1.035]"
               />
+
+              <div className="absolute inset-0 bg-gradient-to-r from-black/86 via-[#130d00]/38 to-black/5" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/10" />
+
+              <div className="relative z-10 flex h-full items-center gap-6 px-7">
+
+                <div className="flex h-[86px] w-[86px] shrink-0 items-center justify-center rounded-[17px] border-2 border-[#F2BC00] bg-black/65 shadow-[0_0_30px_rgba(242,188,0,0.20)]">
+
+                  <div className="relative h-[52px] w-[52px]">
+
+                    <div className="absolute left-[5px] top-[2px] h-[15px] w-[42px] rounded-[50%] border-[4px] border-[#F2BC00]" />
+
+                    <div className="absolute left-[5px] top-[15px] h-[15px] w-[42px] rounded-[50%] border-[4px] border-[#F2BC00]" />
+
+                    <div className="absolute left-[5px] top-[28px] h-[15px] w-[42px] rounded-[50%] border-[4px] border-[#F2BC00]" />
+
+                  </div>
+
+                </div>
+
+                <div className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                  <p className="whitespace-nowrap text-[22px] font-bold tracking-[-0.025em] text-white">
+                    Higher margins
+                  </p>
+
+                  <p className="mt-2 whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.28em] text-white/75">
+                    Greater profitability
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            {/* REAL RESULTS */}
+            <div className="group relative h-[195px] overflow-hidden">
+
+              <img
+                src="/images/home/home-hero-car.png"
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover object-center opacity-88 transition-transform duration-500 group-hover:scale-[1.035]"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-r from-[#001018]/90 via-black/35 to-black/5" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10" />
+
+              <div className="relative z-10 flex h-full items-center gap-6 px-7">
+
+                <div className="flex h-[86px] w-[86px] shrink-0 items-center justify-center rounded-[17px] border-2 border-cyan-400 bg-black/65 shadow-[0_0_30px_rgba(34,211,238,0.18)]">
+
+                  <div className="relative h-[52px] w-[55px]">
+
+                    <div className="absolute left-[4px] top-[29px] h-[5px] w-[43px] -rotate-45 rounded-full bg-cyan-400" />
+
+                    <div className="absolute right-[3px] top-[5px] h-[22px] w-[5px] rounded-full bg-cyan-400" />
+
+                    <div className="absolute right-[3px] top-[5px] h-[5px] w-[22px] rounded-full bg-cyan-400" />
+
+                  </div>
+
+                </div>
+
+                <div className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                  <p className="whitespace-nowrap text-[22px] font-bold tracking-[-0.025em] text-white">
+                    Real results
+                  </p>
+
+                  <p className="mt-2 whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.28em] text-white/75">
+                    A stronger business
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+          <p className="mx-auto mt-6 max-w-[900px] text-center text-[11px] leading-6 text-white/50">
+            No off-the-shelf package. We configure AutoSalesAI around how your
+            dealership operates, your stock profile and the capabilities you need.
+          </p>
+
+        </div>
+      </section>
+      <FAQSection />
+
+      {/* =========================================================
+          UK AUTOMOTIVE ECOSYSTEM — PREMIUM
+      ========================================================= */}
+      <section className="border-t border-white/[0.06] bg-[#020405]">
+        <div className="mx-auto max-w-[1640px] px-8 pb-5 pt-5 xl:px-10">
+
+          <div className="relative overflow-hidden border-y border-[#D49B00]/70 bg-[#020405]">
+
+            {/* SUBTLE CENTRAL AMBIENT GLOW */}
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(circle at 50% 45%, rgba(212,155,0,0.055), transparent 43%)",
+              }}
+            />
+
+            {/* TITLE */}
+            <div className="relative flex items-center justify-center px-4 pt-5 md:gap-6 md:px-0">
+
+              <div className="hidden h-px w-[190px] bg-gradient-to-r from-transparent via-[#C99300]/70 to-[#C99300] md:block" />
+
+              <p className="w-full text-center text-[10px] font-semibold uppercase tracking-[0.18em] text-white/90 md:w-auto md:whitespace-nowrap md:text-[11px] md:tracking-[0.32em]">
+                Part Of The UK Automotive Ecosystem
+              </p>
+
+              <div className="hidden h-px w-[190px] bg-gradient-to-l from-transparent via-[#C99300]/70 to-[#C99300] md:block" />
+
+            </div>
+
+            {/* PREMIUM LOGO ROW */}
+            <div className="relative mt-3 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5">
+
+              {/* AUTOTRADER */}
+              <div className="relative flex min-h-[150px] flex-col items-center justify-center border-white/20 px-6 xl:border-r">
+
+                <div className="pointer-events-none absolute left-1/2 top-[66px] h-[18px] w-[150px] -translate-x-1/2 rounded-full bg-blue-500/20 blur-[18px]" />
+
+                <div className="relative z-10 flex items-center gap-[7px]">
+  <div className="flex items-center gap-[3px]">
+    <div
+      className="h-[9px] w-[25px] -skew-x-[25deg] rounded-[1px]"
+      style={{
+        backgroundColor: "#e32636",
+        boxShadow: "0 0 10px rgba(227,38,54,0.55)"
+      }}
+    />
+    <div
+      className="h-[9px] w-[25px] -skew-x-[25deg] rounded-[1px]"
+      style={{
+        backgroundColor: "#2874b9",
+        boxShadow: "0 0 10px rgba(40,116,185,0.55)"
+      }}
+    />
+  </div>
+
+  <span className="text-[31px] font-bold leading-none tracking-[-0.055em] text-[#f3f3f3]">
+    AutoTrader
+  </span>
+</div>
+
+                <p className="relative z-10 mt-5 text-[9px] font-medium uppercase tracking-[0.34em] text-white/75">
+                  Retail Pricing
+                </p>
+
+                <div className="relative z-10 mt-4 h-px w-[72px] bg-gradient-to-r from-transparent via-[#E2AA00] to-transparent shadow-[0_0_8px_rgba(226,170,0,0.8)]" />
+
+              </div>
+
+              {/* MOTORTRADER */}
+              <div className="relative flex min-h-[150px] flex-col items-center justify-center border-white/20 px-6 xl:border-r">
+
+                <div className="pointer-events-none absolute left-1/2 top-[66px] h-[18px] w-[150px] -translate-x-1/2 rounded-full bg-red-500/20 blur-[18px]" />
+
+                <div className="relative z-10 whitespace-nowrap text-[29px] font-black leading-none tracking-[-0.045em]">
+  <span className="text-[#eeeeee]">MOTOR</span>
+  <span
+    className="text-[#e32636]"
+    style={{ textShadow: "0 0 12px rgba(227,38,54,0.40)" }}
+  >
+    TRADER
+  </span>
+</div>
+
+                <p className="relative z-10 mt-5 text-[9px] font-medium uppercase tracking-[0.34em] text-white/75">
+                  The Trade Experts
+                </p>
+
+                <div className="relative z-10 mt-4 h-px w-[72px] bg-gradient-to-r from-transparent via-[#E2AA00] to-transparent shadow-[0_0_8px_rgba(226,170,0,0.8)]" />
+
+              </div>
+
+              {/* CAR DEALER */}
+              <div className="relative flex min-h-[150px] flex-col items-center justify-center border-white/20 px-6 xl:border-r">
+
+                <div className="pointer-events-none absolute left-1/2 top-[66px] h-[18px] w-[150px] -translate-x-1/2 rounded-full bg-red-500/20 blur-[18px]" />
+
+                <div className="relative z-10 whitespace-nowrap text-[32px] font-bold leading-none tracking-[-0.055em]">
+  <span className="text-[#eeeeee]">Car</span>
+  <span
+    className="text-[#e32636]"
+    style={{ textShadow: "0 0 12px rgba(227,38,54,0.45)" }}
+  >
+    Dealer
+  </span>
+</div>
+
+                <p className="relative z-10 mt-5 text-[9px] font-medium uppercase tracking-[0.34em] text-white/75">
+                  Driven By Dealers
+                </p>
+
+                <div className="relative z-10 mt-4 h-px w-[72px] bg-gradient-to-r from-transparent via-[#E2AA00] to-transparent shadow-[0_0_8px_rgba(226,170,0,0.8)]" />
+
+              </div>
+
+              {/* AM ONLINE */}
+              <div className="relative flex min-h-[150px] flex-col items-center justify-center border-white/20 px-6 xl:border-r">
+
+                <div className="pointer-events-none absolute left-1/2 top-[66px] h-[20px] w-[160px] -translate-x-1/2 rounded-full bg-amber-400/20 blur-[18px]" />
+
+                <div className="relative z-10 flex items-end whitespace-nowrap">
+  <span
+    className="text-[42px] font-black italic leading-[0.8] tracking-[-0.09em] text-[#e89a22]"
+    style={{ textShadow: "0 0 14px rgba(232,154,34,0.40)" }}
+  >
+    AM
+  </span>
+
+  <span className="ml-[8px] text-[25px] font-light italic leading-none tracking-[-0.06em] text-[#d7d7d7]">
+    ONLINE
+  </span>
+</div>
+
+                <p className="relative z-10 mt-5 text-[9px] font-medium uppercase tracking-[0.34em] text-white/75">
+                  Automotive Insights
+                </p>
+
+                <div className="relative z-10 mt-4 h-px w-[72px] bg-gradient-to-r from-transparent via-[#E2AA00] to-transparent shadow-[0_0_8px_rgba(226,170,0,0.8)]" />
+
+              </div>
+
+              {/* BLACK HORSE */}
+              <div className="relative flex min-h-[150px] flex-col items-center justify-center px-6">
+
+                <div className="pointer-events-none absolute left-1/2 top-[66px] h-[18px] w-[150px] -translate-x-1/2 rounded-full bg-white/10 blur-[18px]" />
+
+                <div className="relative z-10 flex items-center gap-[10px] whitespace-nowrap">
+  <span
+    className="text-[31px] font-semibold leading-none tracking-[-0.055em] text-[#eeeeee]"
+    style={{ textShadow: "0 0 10px rgba(255,255,255,0.18)" }}
+  >
+    blackhorse
+  </span>
+
+  <span
+    className="text-[32px] leading-none text-[#eeeeee]"
+    style={{ textShadow: "0 0 10px rgba(255,255,255,0.25)" }}
+  >
+    ♞
+  </span>
+</div>
+
+                <p className="relative z-10 mt-5 text-[9px] font-medium uppercase tracking-[0.34em] text-white/75">
+                  Automotive Finance
+                </p>
+
+                <div className="relative z-10 mt-4 h-px w-[72px] bg-gradient-to-r from-transparent via-[#E2AA00] to-transparent shadow-[0_0_8px_rgba(226,170,0,0.8)]" />
+
+              </div>
+
             </div>
           </div>
         </div>
@@ -668,6 +1508,217 @@ function Benefit({
       <p className="mt-[6px] text-[10px] leading-[1.45] text-white/75">
         {text}
       </p>
+    </div>
+  );
+}
+
+function HeroPhotoBenefit({
+  image,
+  title,
+  text,
+}: {
+  image: string;
+  title: string;
+  text: string;
+}) {
+  return (
+    <div className="group overflow-hidden rounded-[12px] border border-white/15 bg-black/65 transition duration-300 hover:-translate-y-1 hover:border-[#F5B800]/70">
+      <div className="relative h-[92px] overflow-hidden">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 50vw, 20vw"
+          className="object-cover transition duration-500 group-hover:scale-[1.05]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-transparent" />
+      </div>
+
+      <div className="p-3">
+        <div className="mb-2 h-[2px] w-7 bg-[#F5B800]" />
+        <h3 className="text-[12px] font-bold leading-tight text-white">
+          {title}
+        </h3>
+        <p className="mt-1.5 text-[9px] leading-[1.45] text-white/70">
+          {text}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function PhotoMetric({
+  image,
+  title,
+  subtitle,
+}: {
+  image: string;
+  title: string;
+  subtitle: string;
+}) {
+  return (
+    <div className="group relative min-h-[145px] overflow-hidden rounded-[12px] border border-white/10 bg-black transition duration-300 hover:-translate-y-1 hover:border-[#F5B800]/70">
+      <Image
+        src={image}
+        alt={title}
+        fill
+        sizes="(max-width: 768px) 50vw, 16vw"
+        className="object-cover transition duration-500 group-hover:scale-[1.05]"
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/5" />
+
+      <div className="absolute inset-x-0 bottom-0 p-3">
+        <div className="mb-2 h-[2px] w-7 bg-[#F5B800]" />
+        <p className="text-[14px] font-bold uppercase leading-[1.05] text-white">
+          {title}
+        </p>
+        <p className="mt-1 text-[9px] text-white/70">
+          {subtitle}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function HowBenefit({
+  icon,
+  title,
+  text,
+}: {
+  icon: IconType;
+  title: string;
+  text: string;
+}) {
+  return (
+    <div className="flex items-center gap-4 rounded-[12px] border border-[#8d6b17]/70 bg-black/65 px-4 py-4 backdrop-blur-sm">
+      <div className="shrink-0 text-[#F5B800]">
+        <Icon name={icon} size={30} />
+      </div>
+
+      <div>
+        <p className="text-[11px] font-bold uppercase tracking-[0.05em] text-white">
+          {title}
+        </p>
+
+        <p className="mt-1 text-[10px] leading-5 text-white/65">
+          {text}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function HowImageStep({
+  image,
+  title,
+  text,
+  footer,
+}: {
+  image: string;
+  title: string;
+  text: string;
+  footer: string;
+}) {
+  return (
+    <div className="group relative overflow-hidden rounded-[14px] border border-white/15 bg-[#05090b] transition duration-300 hover:-translate-y-1 hover:border-[#F5B800]/70">
+
+      <div className="relative h-[150px] overflow-hidden">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover transition duration-500 group-hover:scale-[1.04]"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/10" />
+      </div>
+
+      <div className="flex min-h-[190px] flex-col p-4">
+        <h3 className="text-[18px] font-bold uppercase text-[#F5B800]">
+          {title}
+        </h3>
+
+        <p className="mt-2 text-[12px] leading-[1.55] text-white/78">
+          {text}
+        </p>
+
+        <div className="mt-auto pt-4">
+          <div className="rounded-full border border-[#8d6b17] px-3 py-2 text-center text-[10px] font-semibold text-[#F5B800]">
+            {footer}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HowTrustImageCard({
+  image,
+  title,
+  text,
+}: {
+  image: string;
+  title: string;
+  text: string;
+}) {
+  return (
+    <div className="group relative overflow-hidden rounded-[16px] border border-white/15 bg-[#050708] shadow-[0_14px_45px_rgba(0,0,0,0.35)] transition duration-300 hover:-translate-y-1 hover:border-[#F5B800]/70">
+
+      <div className="relative h-[175px] overflow-hidden">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+          className="object-cover transition duration-500 group-hover:scale-[1.04]"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050708] via-transparent to-transparent" />
+      </div>
+
+      <div className="relative min-h-[130px] px-6 pb-6 pt-4">
+
+        <div className="mb-4 h-[2px] w-12 bg-[#F5B800] transition-all duration-300 group-hover:w-20" />
+
+        <h3 className="text-[20px] font-bold tracking-[-0.025em] text-white">
+          {title}
+        </h3>
+
+        <p className="mt-3 max-w-[320px] text-[13px] leading-[1.6] text-white/68">
+          {text}
+        </p>
+
+      </div>
+
+    </div>
+  );
+}
+
+function HowTrustItem({
+  icon,
+  title,
+  text,
+}: {
+  icon: IconType;
+  title: string;
+  text: string;
+}) {
+  return (
+    <div className="flex items-center gap-4 border-white/10 px-2 py-3 lg:border-r lg:last:border-r-0">
+      <div className="shrink-0 text-[#F5B800]">
+        <Icon name={icon} size={29} />
+      </div>
+
+      <div>
+        <p className="text-[11px] font-bold text-white">
+          {title}
+        </p>
+
+        <p className="mt-1 text-[9px] text-white/55">
+          {text}
+        </p>
+      </div>
     </div>
   );
 }
@@ -951,6 +2002,33 @@ function OpportunityRow({
   );
 }
 
+function EcosystemLogo({
+  src,
+  alt,
+  last = false,
+}: {
+  src: string;
+  alt: string;
+  last?: boolean;
+}) {
+  return (
+    <div
+      className={`flex min-h-[76px] items-center justify-center px-8 ${
+        last ? "" : "xl:border-r xl:border-white/25"
+      }`}
+    >
+      <div className="relative h-[52px] w-full max-w-[235px]">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="235px"
+          className="object-contain"
+        />
+      </div>
+    </div>
+  );
+}
 function BrandText({ name }: { name: string }) {
   return (
     <div className="text-[17px] font-bold tracking-[-0.03em] text-white">
@@ -1167,3 +2245,30 @@ function ChatIcon() {
 function ChartIcon() {
   return <Icon name="chart" size={22} />;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

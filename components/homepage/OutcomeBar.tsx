@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 
 type TrustItem = {
   label: string;
@@ -16,7 +16,7 @@ type CapabilityCard = {
 
 const trustItems: TrustItem[] = [
   { label: "DealerKit", sublabel: "Compatible", src: "/images/dealerkit_logo.jpg" },
-  { label: "AutoTrader", sublabel: "Friendly", src: "/images/Autotrader.jpg" },
+  { label: "AutoTrader", sublabel: "Friendly", src: "/images/trust-logos/Autotrader.jpg" },
   { label: "WhatsApp", sublabel: "Business", src: "/images/Whatsapp.JPG" },
   { label: "HubSpot", sublabel: "Ready", src: "/images/hubspot.JPG" },
   { label: "UK Based", sublabel: "Support", src: "/images/UK%20based%20support.JPG" },
@@ -29,7 +29,7 @@ const cards: CapabilityCard[] = [
     body: "Engage every enquiry the moment it hits your website, day or night.",
     tag: "Never Miss An Opportunity",
     image: "/images/lead-response.JPG",
-    icon: "ϟ"
+    icon: "⚡"
   },
   {
     title: "Dealer-Specific Qualification",
@@ -146,3 +146,5 @@ export default function OutcomeBar() {
     </section>
   );
 }
+
+
