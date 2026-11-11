@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import BrandName from "@/components/ui/BrandName";
 
 const platformLinks = [
@@ -274,6 +274,9 @@ export default function Footer() {
           </div>
         </div>
 
+        <p className="mt-7 text-xs leading-6 text-white/45">
+          AutoSalesAI is operated by AutosalesAI Ltd, registered in England and Wales under company number 17396040. Business address: 195 Bramble Road, Benfleet, Essex, SS7 2UU, United Kingdom.
+        </p>
         <div className="flex flex-col gap-5 pt-7 md:flex-row md:items-center md:justify-between">
 
           <p className="text-[11px] uppercase tracking-[0.16em] text-white/40">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const fields = [
@@ -90,6 +91,9 @@ export default function DemoForm() {
         />
       </label>
 
+      <p className="mt-6 text-xs leading-6 text-white/60">
+        AutosalesAI Ltd uses these details to respond to your enquiry and arrange your requested demo. The form is processed through Formspree. Read our <Link href="/privacy-policy" className="text-brand-gold underline underline-offset-4">Privacy Policy</Link> for recipients, retention and your rights. A demo request does not subscribe you to a newsletter. Please do not include sensitive personal information or dealership customer records.
+      </p>
       {error && (
         <p className="mt-6 text-sm text-red-400">
           {error}

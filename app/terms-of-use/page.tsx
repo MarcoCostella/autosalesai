@@ -1,13 +1,7 @@
-import Section from "@/components/layout/Section";
+import type { Metadata } from "next";
+import LegalPolicyPage from "@/components/legal/LegalPolicyPage";
+import { termsOfUse } from "@/lib/legal-policies";
 
-export default function TermsOfUsePage() {
-  return (
-    <Section>
-      <article className="prose prose-invert max-w-3xl">
-        <h1>Terms of Use</h1>
-        <p>This is placeholder legal copy for review before launch.</p>
-        <p>By using this website, you agree not to misuse the content, forms or functionality provided.</p>
-      </article>
-    </Section>
-  );
-}
+export const metadata: Metadata = { title: "Terms of Use | AutoSalesAI", robots: { index: false, follow: true } };
+
+export default function Page() { return <LegalPolicyPage policy={termsOfUse} path="/terms-of-use" />; }

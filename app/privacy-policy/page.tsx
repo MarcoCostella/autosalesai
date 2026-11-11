@@ -1,13 +1,7 @@
-import Section from "@/components/layout/Section";
+import type { Metadata } from "next";
+import LegalPolicyPage from "@/components/legal/LegalPolicyPage";
+import { privacyPolicy } from "@/lib/legal-policies";
 
-export default function PrivacyPolicyPage() {
-  return (
-    <Section>
-      <article className="prose prose-invert max-w-3xl">
-        <h1>Privacy Policy</h1>
-        <p>This is placeholder legal copy for review before launch.</p>
-        <p>AutoSalesAI may collect contact details submitted through website forms for the purpose of responding to demo requests and enquiries.</p>
-      </article>
-    </Section>
-  );
-}
+export const metadata: Metadata = { title: "Privacy Policy | AutoSalesAI", robots: { index: false, follow: true } };
+
+export default function Page() { return <LegalPolicyPage policy={privacyPolicy} path="/privacy-policy" />; }
