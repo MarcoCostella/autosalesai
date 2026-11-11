@@ -1,0 +1,32 @@
+"use client";
+
+import Image from "next/image";
+import { useState } from "react";
+
+const examples = [
+  { name: "VW Golf GTD", image: "/images/market-vehicles/vw-golf-gtd.jpg", retail: 13250, purchase: 8900, fees: 250, prep: 850, transport: 250 },
+  { name: "Audi A3 S Line", image: "/images/market-vehicles/audi-a3-s-line.jpg", retail: 14100, purchase: 9800, fees: 250, prep: 700, transport: 250 },
+  { name: "Skoda Karoq SE", image: "/images/market-vehicles/skoda-karoq-se.jpg", retail: 15750, purchase: 11300, fees: 300, prep: 900, transport: 300 },
+];
+const money = (value: number) => new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 0 }).format(value);
+
+export default function AcquisitionExample() {
+  const [selected, setSelected] = useState(0);
+  const [prep, setPrep] = useState(examples[0].prep);
+  const [target, setTarget] = useState(2500);
+  const vehicle = examples[selected];
+  const total = vehicle.purchase + vehicle.fees + prep + vehicle.transport;
+  const headroom = vehicle.retail - total;
+  const limit = vehicle.retail - vehicle.fees - prep - vehicle.transport - target;
+  return <div className="overflow-hidden rounded-3xl border border-[#00BDF2]/30 bg-[#080e11] shadow-[0_20px_70px_rgba(0,0,0,0.3)]">
+    <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-6 py-4"><p className="text-xs font-bold uppercase tracking-[0.16em] text-[#00BDF2]">A worked buying example</p><span className="rounded-full border border-white/15 px-3 py-1 text-[10px] text-white/55">Sample vehicles · illustrative figures</span></div>
+    <div role="group" aria-label="Choose a sample vehicle" className="flex flex-wrap gap-2 border-b border-white/10 p-5">{examples.map((item,index)=><button key={item.name} type="button" aria-pressed={selected===index} onClick={()=>{setSelected(index);setPrep(item.prep);setTarget(2500);}} className={`min-h-11 rounded-lg border px-4 py-2 text-xs font-bold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00BDF2] ${selected===index ? "border-[#00BDF2] bg-[#00BDF2]/10 text-[#00BDF2]" : "border-white/15 text-white/60 hover:border-[#00BDF2]/50"}`}>{item.name}</button>)}</div>
+    <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="p-6 md:p-8"><div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10"><Image src={vehicle.image} alt={`Sample ${vehicle.name}`} fill sizes="(min-width:1024px) 500px, 100vw" className="object-cover"/><div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"/><h3 className="absolute bottom-5 left-5 text-xl font-bold text-white">{vehicle.name}</h3></div><dl className="mt-5 divide-y divide-white/10">{[["Assumed retail price",vehicle.retail],["Assumed purchase price",vehicle.purchase],["Buyer’s fees",vehicle.fees],["Transport",vehicle.transport]].map(([label,value])=><div key={label} className="flex justify-between gap-4 py-3 text-sm"><dt className="text-white/55">{label}</dt><dd className="font-semibold text-white">{money(Number(value))}</dd></div>)}</dl></div>
+      <div className="border-t border-white/10 p-6 md:p-8 lg:border-l lg:border-t-0"><h3 className="font-heading text-2xl font-bold tracking-[-0.03em] text-white">Challenge the assumptions.</h3><p className="mt-3 text-sm leading-7 text-white/60">Move the sliders to see why preparation costs and your required headroom matter before you set a bid.</p><div className="mt-6 space-y-6"><div><div className="flex justify-between gap-3 text-sm"><label htmlFor="example-preparation" className="font-semibold text-white/80">Preparation allowance</label><output htmlFor="example-preparation" className="font-bold text-[#00BDF2]">{money(prep)}</output></div><input id="example-preparation" type="range" min={300} max={2000} step={50} value={prep} onChange={event=>setPrep(Number(event.target.value))} className="mt-4 h-6 w-full cursor-pointer accent-[#00BDF2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#00BDF2]"/><div className="flex justify-between text-[10px] text-white/35"><span>£300</span><span>£2,000</span></div></div><div><div className="flex justify-between gap-3 text-sm"><label htmlFor="example-target" className="font-semibold text-white/80">Required gross headroom</label><output htmlFor="example-target" className="font-bold text-[#F5B800]">{money(target)}</output></div><input id="example-target" type="range" min={1000} max={4000} step={100} value={target} onChange={event=>setTarget(Number(event.target.value))} className="mt-4 h-6 w-full cursor-pointer accent-[#F5B800] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F5B800]"/><div className="flex justify-between text-[10px] text-white/35"><span>£1,000</span><span>£4,000</span></div></div></div>
+        <div className="mt-7 grid grid-cols-2 gap-3"><div className="rounded-xl border border-white/10 bg-black/20 p-4"><p className="text-[10px] leading-5 text-white/50">Total assumed acquisition cost</p><p className="mt-2 text-xl font-bold text-white">{money(total)}</p></div><div className="rounded-xl border border-white/10 bg-black/20 p-4"><p className="text-[10px] leading-5 text-white/50">Gross headroom at sample purchase</p><p className={`mt-2 text-xl font-bold ${headroom>=target ? "text-emerald-300" : "text-amber-300"}`}>{money(headroom)}</p></div></div>
+        <div role="status" aria-live="polite" aria-atomic="true" className="mt-3 rounded-xl border border-[#00BDF2]/30 bg-[#00BDF2]/5 p-5"><p className="text-xs text-white/65">Illustrative buying limit at your required headroom</p><p className="mt-2 font-heading text-3xl font-bold text-[#00BDF2]">{money(limit)}</p><p className="mt-2 text-xs leading-6 text-white/50">{headroom>=target ? "The sample purchase is within this limit." : "The sample purchase exceeds this limit. Revisit the price or assumptions."}</p></div>
+      </div>
+    </div><div className="border-t border-white/10 px-6 py-5 text-xs leading-6 text-white/45">Calculation: retail less purchase, buyer’s fees, preparation and transport. Gross headroom is not net profit: VAT/tax, warranty, finance, advertising, overheads and other costs are excluded. Sample assumptions are not valuations, live availability or a recommendation to bid.</div>
+  </div>;
+}
