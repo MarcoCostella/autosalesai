@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SolutionsSection from "@/components/homepage/SolutionsSection";
 import FAQSection from "@/components/homepage/FAQSection";
 import PlatformTicker from "@/components/homepage/PlatformTicker";
 
@@ -1354,6 +1355,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <SolutionsSection />
     </main>
   );
 }
