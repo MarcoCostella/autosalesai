@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import BrandName from "@/components/ui/BrandName";
 
@@ -46,7 +46,7 @@ export default function HeroSection() {
 
             <div className="mt-10 flex flex-col gap-5 sm:flex-row">
               <Button href="/book-demo">Book A Demo</Button>
-              <Button href="#demo" variant="secondary">
+              <Button href="/ai-sales-assistant#demo" variant="secondary">
                 See How It Works
               </Button>
             </div>

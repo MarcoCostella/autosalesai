@@ -12,7 +12,7 @@ export default function HomePage() {
       <HeroSection />
       <OutcomeBar />
       <BenefitsGrid />
-      <Section>
+      <Section id="demo" className="scroll-mt-40 bg-[#020506]">
         <InteractiveDemo />
       </Section>
       <MarketPreview />
