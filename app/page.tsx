@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import FAQSection from "@/components/homepage/FAQSection";
 import PlatformTicker from "@/components/homepage/PlatformTicker";
@@ -89,126 +89,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* RIGHT HERO */}
-            <div className="relative min-h-[390px]">
-
-              {/* ACQUISITION CARD */}
-              <div className="absolute bottom-[42px] right-[295px] z-30 w-[198px] rounded-[13px] border border-[#D89D00] bg-[#071014]/95 p-4 shadow-[0_12px_40px_rgba(0,0,0,0.6)]">
-
-                <div className="flex items-start justify-between gap-3">
-                  <div className="relative h-[58px] w-[94px] overflow-hidden rounded-md">
-                    <Image
-                      src="/images/demo-qashqai.png"
-                      alt="Audi A3"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-
-                  <div className="text-center">
-                    <div className="flex h-[48px] w-[48px] items-center justify-center rounded-full border-[3px] border-[#29e875] text-[20px] font-bold">
-                      92
-                    </div>
-                    <p className="mt-1 text-[9px] text-white/70">
-                      AI Score
-                    </p>
-                  </div>
-                </div>
-
-                <p className="mt-3 text-[16px] font-bold">
-                  Audi A3
-                </p>
-
-                <p className="text-[11px] text-white/75">
-                  1.6 TDI S Line
-                </p>
-
-                <p className="text-[11px] text-white/65">
-                  2019 · 62,000 miles
-                </p>
-
-                <div className="mt-3 space-y-[7px] border-t border-white/10 pt-3 text-[11px]">
-                  <Metric label="Est. Retail" value="£14,100" />
-                  <Metric label="Target Bid" value="£9,800" />
-                  <Metric label="Max Bid" value="£10,600" />
-                  <Metric label="Est. Profit" value="£3,410" green />
-                  <Metric label="ROI" value="35%" green />
-                </div>
-              </div>
-
-              {/* AI ASSISTANT PANEL */}
-              <div className="absolute right-0 top-[-12px] z-30 w-[285px] rounded-[22px] border border-[#B88922] bg-[#05090b]/95 p-4 shadow-[0_18px_50px_rgba(0,0,0,0.7)]">
-
-                <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                  <div className="flex items-center gap-3">
-                    <div
-                      className="flex h-8 w-8 items-center justify-center rounded-full border"
-                      style={{
-                        borderColor: GOLD,
-                        color: GOLD
-                      }}
-                    >
-                      <PersonIcon />
-                    </div>
-
-                    <div>
-                      <p className="text-[11px] font-semibold">
-                        AutoSalesAI Assistant
-                      </p>
-                      <p className="text-[9px] text-[#35e77a]">
-                        ● Online
-                      </p>
-                    </div>
-                  </div>
-
-                  <span className="text-white/60">•••</span>
-                </div>
-
-                <div className="mt-3 space-y-2">
-
-                  <div className="ml-auto max-w-[75%] rounded-[9px] border border-white/10 bg-white/10 px-3 py-2 text-[10px] leading-[1.35]">
-                    Find me 3 profitable SUVs at BCA next week under £15,000
-                  </div>
-
-                  <div className="max-w-[84%] rounded-[9px] border border-white/10 bg-white/10 px-3 py-2 text-[10px] leading-[1.35]">
-                    Here are 3 high-potential SUVs based on current market data,
-                    profitability and demand.
-                  </div>
-
-                  <VehicleResult
-                    image="/images/demo-qashqai.png"
-                    name="Nissan Qashqai"
-                    meta="2020 · 56k miles"
-                    price="£13,995"
-                    profit="Est. Profit: £4,200"
-                  />
-
-                  <VehicleResult
-                    image="/images/demo-sportage.png"
-                    name="Kia Sportage"
-                    meta="2019 · 62k miles"
-                    price="£14,750"
-                    profit="Est. Profit: £3,850"
-                  />
-
-                  <VehicleResult
-                    image="/images/demo-qashqai.png"
-                    name="VW Tiguan"
-                    meta="2020 · 48k miles"
-                    price="£14,300"
-                    profit="Est. Profit: £3,600"
-                  />
-                </div>
-
-                <div className="mt-3 flex items-center justify-between rounded-[9px] border border-white/10 bg-white/[0.06] px-3 py-[10px]">
-                  <span className="text-[9px] text-white/45">
-                    Ask anything about stock, pricing or market trends...
-                  </span>
-
-                  <span className="text-[16px]">→</span>
-                </div>
-              </div>
-            </div>
+            {/* Keep the hero layout open to the car background. */}
+            <div aria-hidden="true" className="relative min-h-[390px]" />
           </div>
 
           {/* =====================================================
