@@ -1,39 +1,5 @@
-import Section from "@/components/layout/Section";
-import Card from "@/components/ui/Card";
-import Button from "@/components/ui/Button";
-import SectionHeader from "@/components/ui/SectionHeader";
+import { FeaturedStudy } from "@/components/case-studies/DealerStory";
 
 export default function CaseStudyPreview() {
-  return (
-    <Section className="bg-brand-charcoal/30">
-      <SectionHeader
-        eyebrow="Case Study"
-        title="Trusted By Forward-Thinking Dealerships"
-      />
-
-      <Card>
-        <p className="text-sm font-semibold uppercase tracking-widest text-brand-gold">
-          The Dealership
-        </p>
-
-        <blockquote className="mt-5 font-heading text-2xl font-bold leading-snug md:text-4xl">
-          “The AI assistant behaves much more like a member of the sales team
-          than a traditional chatbot.”
-        </blockquote>
-
-        <p className="mt-5 text-brand-muted">
-          Ray Bishop, Owner, The Dealership
-        </p>
-
-        <p className="mt-5 text-brand-muted">
-          “The AI assistant provides a far more professional customer experience
-          than our previous website chat solution.”
-        </p>
-
-        <Button href="/case-studies/the-dealership" className="mt-8">
-          Read Case Study
-        </Button>
-      </Card>
-    </Section>
-  );
+  return <section className="border-t border-white/10 bg-[#020506] py-16 md:py-20"><div className="mx-auto max-w-[1280px] px-6 md:px-10"><div className="mb-8 max-w-[700px]"><p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#F5B800]">A dealership’s perspective</p><h2 className="mt-4 font-heading text-3xl font-bold tracking-[-0.035em] text-white md:text-4xl">See the implementation behind the experience.</h2><p className="mt-4 text-sm leading-7 text-white/65">Explore the brief, the five-day rollout and feedback from the owner of The Dealership.</p></div><FeaturedStudy/></div></section>;
 }

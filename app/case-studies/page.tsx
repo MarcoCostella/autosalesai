@@ -1,27 +1,16 @@
-import Section from "@/components/layout/Section";
-import SectionHeader from "@/components/ui/SectionHeader";
-import Card from "@/components/ui/Card";
-import Button from "@/components/ui/Button";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, MessageSquare, Settings2, ClipboardCheck } from "lucide-react";
+import { FeaturedStudy, StudyCTA } from "@/components/case-studies/DealerStory";
+
+export const metadata: Metadata = { title: "Customer Stories | AutoSalesAI", description: "Explore The Dealership’s five-day AutoSalesAI implementation, the sales workflows it covered and the owner’s feedback." };
 
 export default function CaseStudiesPage() {
-  return (
-    <Section>
-      <SectionHeader
-        eyebrow="Case Studies"
-        title="Real Dealerships. Real Implementations."
-        text="See how AutoSalesAI is helping independent dealerships improve customer engagement and lead capture."
-      />
-      <Card>
-        <p className="text-sm font-semibold uppercase tracking-widest text-brand-gold">Featured Case Study</p>
-        <h2 className="mt-4 font-heading text-3xl font-bold">The Dealership</h2>
-        <div className="mt-6 grid gap-4 text-brand-muted md:grid-cols-4">
-          <p>Independent used car dealership</p>
-          <p>45–50 vehicles</p>
-          <p>Previous solution: Visitor Chat</p>
-          <p>Deployment time: 5 days</p>
-        </div>
-        <Button href="/case-studies/the-dealership" className="mt-8">Read Case Study</Button>
-      </Card>
-    </Section>
-  );
+  return <div className="bg-[#020506] text-white">
+    <section className="relative overflow-hidden border-b border-white/10 bg-[radial-gradient(ellipse_at_top_right,rgba(245,184,0,0.09),transparent_60%)]"><div className="mx-auto grid max-w-[1280px] gap-8 px-6 py-14 md:px-10 md:py-20 lg:grid-cols-[1.4fr_0.6fr] lg:items-end"><div><p className="text-[11px] font-bold uppercase tracking-[0.24em] text-[#F5B800]">Customer stories</p><h1 className="mt-5 max-w-[850px] font-heading text-4xl font-bold leading-[1.08] tracking-[-0.045em] md:text-6xl">Built around the dealer.<span className="mt-2 block text-[#F5B800]">Experienced by the customer.</span></h1><p className="mt-6 max-w-[710px] text-base leading-8 text-white/65 md:text-lg">Go beyond the product features. Explore how AutoSalesAI was introduced at an independent dealership, what the implementation involved and how the owner described the experience.</p></div><div className="border-l border-[#F5B800]/40 pl-6"><p className="text-sm font-semibold text-white">A closer look at the work.</p><p className="mt-3 text-sm leading-7 text-white/55">The brief. The configuration. The rollout. The dealer’s own words.</p><a href="#featured-story" className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-[#F5B800]">Explore the story<ArrowRight size={16} aria-hidden="true"/></a></div></div></section>
+    <section id="featured-story" aria-label="Featured customer story" className="mx-auto max-w-[1280px] scroll-mt-40 px-6 py-12 md:px-10 md:py-16"><FeaturedStudy/></section>
+    <section className="mx-auto max-w-[1280px] px-6 pb-16 md:px-10"><div className="grid gap-7 border-t border-white/10 pt-12 lg:grid-cols-[0.65fr_1.35fr]"><div><p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#F5B800]">Inside the case study</p><h2 className="mt-4 font-heading text-3xl font-bold tracking-[-0.03em]">The detail behind the experience.</h2><p className="mt-4 text-sm leading-7 text-white/60">Understand what a dealership-focused implementation looks like before discussing your own.</p></div><div className="grid gap-4 sm:grid-cols-3">{[{icon:MessageSquare,title:"A clearer brief",text:"The customer experience the dealership wanted to improve."},{icon:Settings2,title:"A managed rollout",text:"How requirements, configuration and testing fitted together."},{icon:ClipboardCheck,title:"First-hand feedback",text:"What the owner said about the assistant’s approach."}].map(item=><article key={item.title} className="rounded-2xl border border-white/10 bg-[#080e11] p-5"><item.icon size={24} aria-hidden="true" className="text-[#F5B800]"/><h3 className="mt-4 text-base font-bold">{item.title}</h3><p className="mt-3 text-sm leading-7 text-white/60">{item.text}</p></article>)}</div></div></section>
+    <section className="border-y border-white/10 bg-white/[0.02]"><div className="mx-auto flex max-w-[1280px] flex-col gap-5 px-6 py-9 md:flex-row md:items-center md:justify-between md:px-10"><div><h2 className="text-xl font-bold">Want to experience the conversation first?</h2><p className="mt-2 text-sm leading-7 text-white/60">Try sample enquiries and see the information your sales team could receive.</p></div><Link href="/ai-sales-assistant#demo" className="inline-flex min-h-12 shrink-0 items-center justify-center gap-3 rounded-lg border border-[#F5B800]/50 px-5 py-3 text-sm font-bold text-[#F5B800] hover:bg-[#F5B800]/5">Try the guided demo<ArrowRight aria-hidden="true" size={17}/></Link></div></section>
+    <StudyCTA/>
+  </div>;
 }
