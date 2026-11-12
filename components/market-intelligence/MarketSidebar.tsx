@@ -214,7 +214,7 @@ const navigation = [
   },
 ];
 
-export default function MarketSidebar() {
+export default function MarketSidebar({onOpenAssistant}:{onOpenAssistant?:()=>void}) {
   const pathname = usePathname();
 
   return (
@@ -265,25 +265,7 @@ export default function MarketSidebar() {
         </div>
       </nav>
 
-      {/* AI Assistant */}
-      <div className="p-3">
-        <div className="rounded-xl border border-[#524516] bg-[#0e1011] p-4">
-          <div className="text-[12px] font-semibold text-[#d4af37]">
-            AI Assistant
-          </div>
-
-          <p className="mt-2 max-w-[130px] text-[10px] leading-[1.55] text-[#9b9b9b]">
-            Ask anything about the market
-          </p>
-
-          <button
-            type="button"
-            className="mt-5 flex h-12 w-12 items-center justify-center rounded-full border border-[#806a1f] bg-[#0a0b0c] text-[14px] font-semibold text-[#d4af37] transition hover:bg-[#171305]"
-          >
-            AI
-          </button>
-        </div>
-      </div>
+      <div className="p-3"><button type="button" onClick={onOpenAssistant} disabled={!onOpenAssistant} className="group relative isolate w-full overflow-hidden rounded-2xl border border-[#00BDF2]/35 bg-[#0b1820] p-4 text-left shadow-[0_8px_35px_rgba(0,189,242,0.08)] transition hover:border-[#49d7ff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#00BDF2]" aria-haspopup="dialog"><div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(0,189,242,0.23),transparent_75%)]"/><div className="flex items-center gap-2"><span className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#49d7ff]/30 bg-[#00BDF2]/10 text-sm font-bold text-[#49d7ff]">AI</span><span className="text-[9px] uppercase tracking-[0.15em] text-[#49d7ff]">Guided preview</span></div><span className="mt-4 block text-sm font-bold text-white">Your buying companion.</span><span className="mt-2 block text-[11px] leading-5 text-white/60">Compare vehicles. Explore costs. See the reasoning.</span><span className="mt-4 flex items-center justify-between border-t border-white/10 pt-3 text-[11px] font-semibold text-[#49d7ff]">Open Market Assistant<span aria-hidden="true">↗</span></span></button></div>
     </aside>
   );
 }
