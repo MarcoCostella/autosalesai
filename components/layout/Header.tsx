@@ -32,8 +32,8 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-black/95 backdrop-blur">
-      <div className="mx-auto flex h-[92px] max-w-[1440px] items-center justify-between px-5 md:h-[116px] md:px-8 lg:px-12 xl:px-16">
-        <Link href="/" className="relative flex items-center">
+      <div className="mx-auto flex h-[92px] max-w-[1440px] items-center justify-between min-[700px]:justify-center min-[1200px]:justify-between gap-5 px-5 md:px-8 min-[1200px]:h-[106px] min-[1400px]:px-12">
+        <Link href="/" className="relative flex shrink-0 items-center">
           <div className="absolute inset-0 rounded-full bg-brand-gold/10 blur-3xl" />
 
           <Image
@@ -42,17 +42,18 @@ export default function Header() {
             width={320}
             height={120}
             priority
-            className="relative z-10 h-auto w-[190px] object-contain md:w-[310px]"
+            className="relative z-10 h-auto w-[190px] object-contain md:w-[250px] min-[1200px]:w-[230px] min-[1400px]:w-[280px]"
           />
         </Link>
 
-        <nav className="hidden items-center gap-6 min-[1400px]:flex">
+        <nav className="hidden items-center gap-4 min-[1200px]:flex min-[1400px]:gap-6">
           {navigation.slice(0, 5).map(([label, href]) => (
             <Link
               key={href}
               href={href}
-              className={`text-[13px] font-bold uppercase tracking-[0.18em] transition ${
-                href === "/"
+              aria-current={pathname === href ? "page" : undefined}
+              className={`inline-flex min-h-11 items-center whitespace-nowrap text-[11px] min-[1400px]:text-[12px] font-bold uppercase tracking-[0.12em] transition ${
+                pathname === href
                   ? "text-brand-gold"
                   : "text-white hover:text-brand-gold"
               }`}
@@ -64,7 +65,7 @@ export default function Header() {
 
         <Link
           href="/book-demo"
-          className="hidden rounded-lg border border-brand-gold/80 px-8 py-4 text-[13px] font-bold uppercase tracking-[0.18em] text-brand-gold transition hover:bg-brand-gold hover:text-black min-[1400px]:inline-flex"
+          className="hidden shrink-0 items-center whitespace-nowrap rounded-lg border border-brand-gold/80 px-5 py-4 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-gold transition hover:bg-brand-gold hover:text-black min-[1200px]:inline-flex min-[1400px]:px-7 min-[1400px]:text-[12px]"
         >
           Book A Demo
         </Link>
@@ -72,7 +73,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setMenuOpen((prev) => !prev)}
-          className="inline-flex border border-brand-gold/70 px-4 py-3 text-[12px] font-bold uppercase tracking-[0.18em] text-brand-gold min-[1400px]:hidden"
+          className="inline-flex border border-brand-gold/70 px-4 py-3 text-[12px] font-bold uppercase tracking-[0.18em] text-brand-gold min-[700px]:hidden"
           aria-label="Toggle navigation menu"
           aria-expanded={menuOpen} aria-controls="mobile-navigation"
         >
@@ -80,8 +81,16 @@ export default function Header() {
         </button>
       </div>
 
+      <nav aria-label="Tablet navigation" className="mx-auto hidden max-w-[1440px] flex-wrap items-center justify-center gap-x-5 border-t border-white/10 px-5 py-1 min-[700px]:flex min-[1200px]:hidden">
+        {navigation.map(([label, href]) => (
+          <Link key={href} href={href} aria-current={pathname === href ? "page" : undefined} className={`inline-flex min-h-11 items-center whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.10em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-gold ${pathname === href ? "text-brand-gold" : "text-white hover:text-brand-gold"}`}>
+            {label === "Book Demo" ? "Book a Demo" : label}
+          </Link>
+        ))}
+      </nav>
+
       {menuOpen && (
-        <div id="mobile-navigation" className="max-h-[calc(100dvh-92px)] overflow-y-auto overscroll-contain border-t border-white/10 bg-black px-5 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] md:max-h-[calc(100dvh-116px)] min-[1400px]:hidden">
+        <div id="mobile-navigation" className="phone-navigation max-h-[calc(100dvh-92px)] overflow-y-auto overscroll-contain border-t border-white/10 bg-black px-5 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] min-[700px]:hidden">
           <nav className="flex flex-col gap-2">
             {navigation.map(([label, href]) => (
               <Link

@@ -43,3 +43,13 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+/* Keep Safari orientation changes from enlarging navigation text. Zoom remains available. */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+/* Height fallback for browsers without dynamic viewport units. */
+.phone-navigation {
+  max-height: calc(100vh - 92px);
+  max-height: calc(100dvh - 92px);
+}
