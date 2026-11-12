@@ -1,42 +1,16 @@
-import Section from "@/components/layout/Section";
-import SectionHeader from "@/components/ui/SectionHeader";
+import Image from "next/image";
+import Link from "next/link";
+import { Check, ArrowUpRight } from "lucide-react";
 import DemoForm from "@/components/forms/DemoForm";
-import ProcessSteps from "@/components/product/ProcessSteps";
-import BrandName from "@/components/ui/BrandName";
-
-export default function BookDemoPage() {
-  return (
-    <>
-      <Section>
-        <SectionHeader
-          eyebrow="Book Demo"
-          title={
-            <>
-              Book A Personalised <BrandName /> Demo
-            </>
-          }
-          text={
-            <>
-              See how <BrandName /> can help your dealership capture more
-              leads, qualify buyers and prepare for smarter stock decisions.
-            </>
-          }
-        />
-
-        <DemoForm />
-      </Section>
-
-      <Section className="bg-brand-charcoal/30">
-        <SectionHeader title="What Happens Next" />
-
-        <ProcessSteps
-  steps={[
-    "We review your dealership website",
-    "We understand your current enquiry process",
-    "We demonstrate a tailored AutoSalesAI deployment",
-  ].filter((step): step is string => Boolean(step))}
-/>
-      </Section>
-    </>
-  );
-}
+export const metadata = { title:"Book a Personalised Demo | AutoSalesAI", description:"Explore AutoSalesAI with a demonstration shaped around your dealership, customer enquiries and buying priorities." };
+const steps=[
+ {title:"We explore your dealership",image:"/images/how-it-works/real-inventory.png",text:"We review your website and stock profile so the conversation starts with how your business actually operates.",detail:"Your website. Your vehicles. Your priorities."},
+ {title:"We understand your workflow",image:"/images/Dealer-qualification.JPG",text:"We discuss how enquiries reach your team, where customers need support and what matters in your buying process.",detail:"The challenges worth solving first."},
+ {title:"You see a relevant demonstration",image:"/images/how-it-works/feature-vehicle-market-analysis.JPG",text:"We walk through the capabilities that fit, answer your questions and discuss the scope and integrations you would need.",detail:"A practical look at the possibilities."},
+];
+export default function BookDemoPage(){return <div className="bg-[#020506] text-white">
+ <section className="relative isolate overflow-hidden border-b border-white/10"><Image src="/images/how-it-works/real-inventory.png" alt="" fill priority sizes="100vw" className="-z-20 object-cover object-center"/><div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-r from-[#020506] via-[#020506]/90 to-[#020506]/45"/><div className="mx-auto max-w-[1280px] px-6 py-10 md:px-10 md:py-14"><p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#F5B800]">Built around your dealership</p><h1 className="mt-4 max-w-[800px] font-heading text-4xl font-bold leading-[1.08] tracking-[-0.04em] md:text-5xl">See what AutoSalesAI<br/><span className="text-[#F5B800]">could do for your business.</span></h1><p className="mt-5 max-w-[640px] text-base leading-7 text-white/70">Explore stronger customer conversations and more informed buying decisions, with a demonstration shaped around your stock, your team and your priorities.</p></div></section>
+ <div className="mx-auto max-w-[1280px] px-6 pb-14 pt-8 md:px-10 md:pb-16 md:pt-10">
+ <div className="grid items-start gap-7 lg:grid-cols-[1fr_0.36fr]"><DemoForm/><aside className="hidden space-y-5 lg:block lg:pt-3"><div className="rounded-2xl border border-[#F5B800]/20 bg-[#F5B800]/5 p-6"><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#efd269]">Your demo, your priorities</p><h2 className="mt-4 text-xl font-bold tracking-tight">A useful conversation.<br/>A practical next step.</h2><ul className="mt-5 space-y-4">{["Explore the AI Sales Assistant","Review the Market Intelligence workflow","Discuss your website and systems","Ask about scope, setup and pricing"].map(point=><li key={point} className="flex gap-2 text-xs leading-6 text-white/65"><Check size={15} className="mt-1 shrink-0 text-[#F5B800]" aria-hidden="true"/>{point}</li>)}</ul></div><div className="px-1"><h3 className="text-sm font-semibold">Prefer to speak to us?</h3><a href="tel:+447929023079" className="mt-2 inline-flex min-h-11 items-center text-sm text-[#efd269]">07929 023079</a><a href="mailto:contact@autosalesai.co.uk" className="block break-words text-xs leading-6 text-white/60 hover:text-white">contact@autosalesai.co.uk</a><Link href="/ai-sales-assistant#demo" className="mt-4 inline-flex min-h-11 items-center gap-2 text-xs font-semibold text-[#49d7ff]">Try the guided example<ArrowUpRight size={14}/></Link></div></aside></div>
+ <section aria-labelledby="next-steps-heading" className="mt-10 border-t border-white/10 pt-8 md:mt-12 md:pt-10"><div className="flex flex-col justify-between gap-3 md:flex-row md:items-end"><div><p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#F5B800]">From request to demonstration</p><h2 id="next-steps-heading" className="mt-3 font-heading text-3xl font-bold tracking-[-0.035em] md:text-4xl">What happens next?</h2></div><p className="max-w-[410px] text-sm leading-7 text-white/55">Three clear steps to a demonstration that makes sense for your dealership.</p></div><ol className="mt-6 grid list-none gap-5 md:grid-cols-3">{steps.map((step,index)=><li key={step.title} className="group overflow-hidden rounded-2xl border border-white/15 bg-[#10171c]"><div className="relative aspect-[16/9] overflow-hidden"><Image src={step.image} alt="" fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-105"/><div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#10171c] via-transparent to-black/10"/><span className="absolute left-5 top-5 flex h-10 w-10 items-center justify-center rounded-xl border border-[#F5B800]/50 bg-[#061017]/90 text-sm font-bold text-[#F5B800]">{index+1}</span></div><div className="px-6 pb-6 pt-2"><h3 className="text-xl font-bold leading-tight tracking-tight">{step.title}</h3><p className="mt-3 text-sm leading-7 text-white/60">{step.text}</p><p className="mt-5 border-t border-white/10 pt-4 text-[11px] font-semibold leading-6 text-[#efd269]">{step.detail}</p></div></li>)}</ol></section>
+ </div></div>}
