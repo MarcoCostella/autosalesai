@@ -568,13 +568,6 @@ export default function AuctionsPage() {
           </nav>
 
           <div className="ml-auto flex items-center gap-7">
-            <Link
-              href="/book-demo"
-              className="hidden rounded-lg border border-[#a57e12] px-7 py-4 text-[11px] font-bold uppercase tracking-[0.15em] text-[#dfb82b] transition hover:bg-[#d7ad25] hover:text-black lg:block"
-            >
-              Book A Demo
-            </Link>
-
             <button className="hidden items-center gap-2 text-sm font-semibold text-[#d7ad25] 2xl:flex">
               <span className="text-lg">
                 ↻
