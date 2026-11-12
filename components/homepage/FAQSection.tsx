@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -109,7 +109,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="relative min-h-[820px] overflow-hidden border-t border-white/10 bg-[#020506]">
+    <section id="faq" className="scroll-mt-40 relative min-h-[820px] overflow-hidden border-t border-white/10 bg-[#020506]">
 
       {/* FULL CINEMATIC BACKGROUND */}
       <div

@@ -1,28 +1,28 @@
-import Link from "next/link";
+
 import BrandName from "@/components/ui/BrandName";
 
 const platformLinks = [
   { label: "Platform Overview", href: "/" },
   { label: "AI Sales Assistant", href: "/ai-sales-assistant" },
-  { label: "Lead Capture", href: "/ai-sales-assistant" },
-  { label: "Vehicle Recommendations", href: "/ai-sales-assistant" },
-  { label: "Part Exchange", href: "/ai-sales-assistant" },
-  { label: "Follow-Up", href: "/ai-sales-assistant" },
+  { label: "Lead Capture", href: "/ai-sales-assistant#demo" },
+  { label: "Vehicle Recommendations", href: "/ai-sales-assistant#demo" },
+  { label: "Part Exchange", href: "/ai-sales-assistant#demo" },
+  { label: "Follow-Up", href: "/ai-sales-assistant#demo" },
 ];
 
 const intelligenceLinks = [
   { label: "Market Intelligence", href: "/market-intelligence" },
-  { label: "Auction Intelligence", href: "/market-intelligence" },
-  { label: "BCA Intelligence", href: "/market-intelligence" },
-  { label: "Manheim Intelligence", href: "/market-intelligence" },
-  { label: "Acquisition Intelligence", href: "/market-intelligence" },
-  { label: "Pricing Intelligence", href: "/market-intelligence" },
+  { label: "Auction Intelligence", href: "/market-intelligence#auction" },
+  { label: "BCA Intelligence", href: "/market-intelligence/auctions" },
+  { label: "Manheim Intelligence", href: "/market-intelligence/auctions" },
+  { label: "Acquisition Intelligence", href: "/market-intelligence#worked-example" },
+  { label: "Pricing Intelligence", href: "/market-intelligence#pricing" },
 ];
 
 const resourceLinks = [
   { label: "Case Studies", href: "/case-studies" },
   { label: "FAQs", href: "/#faq" },
-  { label: "Market Analysis", href: "/market-analysis" },
+  { label: "Market Analysis", href: "/market-intelligence/analytics" },
 ];
 
 const companyLinks = [
@@ -44,12 +44,12 @@ const FooterLink = ({
   href: string;
   children: React.ReactNode;
 }) => (
-  <Link
+  <a
     href={href}
-    className="text-sm leading-6 text-brand-muted transition-colors duration-200 hover:text-brand-gold"
+    className="inline-flex min-h-8 items-center rounded text-sm leading-6 text-brand-muted transition-colors duration-200 hover:text-brand-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold"
   >
     {children}
-  </Link>
+  </a>
 );
 
 const MobileFooterGroup = ({
@@ -246,7 +246,7 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-wrap gap-x-10 gap-y-4">
-              <Link
+              <a
                 href="/ai-sales-assistant"
                 className="group"
               >
@@ -256,9 +256,9 @@ export default function Footer() {
                 <span className="mt-1 block text-sm font-semibold text-white transition group-hover:text-brand-gold">
                   AI Sales Assistant →
                 </span>
-              </Link>
+              </a>
 
-              <Link
+              <a
                 href="/market-intelligence"
                 className="group"
               >
@@ -268,7 +268,7 @@ export default function Footer() {
                 <span className="mt-1 block text-sm font-semibold text-white transition group-hover:text-cyan-400">
                   Market Intelligence →
                 </span>
-              </Link>
+              </a>
             </div>
 
           </div>
@@ -285,13 +285,13 @@ export default function Footer() {
 
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {legalLinks.map((item) => (
-              <Link
+              <a
                 key={item.label}
                 href={item.href}
                 className="text-xs text-white/40 transition-colors hover:text-brand-gold"
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
           </div>
 
