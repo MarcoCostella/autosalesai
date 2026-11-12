@@ -938,13 +938,13 @@ export default function AuctionsPage() {
 
               {/* RIGHT ANALYTICS */}
 
-              <div className="grid gap-4">
+              <div className="grid min-w-0 gap-4">
                 <div className="rounded-xl border border-[#765b12]/60 bg-[#0a0c0d] p-5">
                   <h2 className="text-[16px] font-semibold">
                     Auction Source Breakdown
                   </h2>
 
-                  <div className="mt-4 flex items-center justify-between gap-7">
+                  <div className="mt-4 flex flex-col items-center justify-between gap-5 sm:flex-row sm:gap-7">
                     <div className="relative h-[140px] w-[140px] shrink-0 rounded-full bg-[conic-gradient(#4169b2_0_50%,#d6a83a_50%_86%,#875a9d_86%_100%)]">
                       <div className="absolute inset-[27px] flex flex-col items-center justify-center rounded-full bg-[#0a0c0d]">
                         <div className="text-[26px] font-bold">
@@ -957,7 +957,7 @@ export default function AuctionsPage() {
                       </div>
                     </div>
 
-                    <div className="min-w-[180px] space-y-4 text-xs">
+                    <div className="w-full min-w-0 space-y-4 text-xs sm:min-w-[180px]">
                       <Legend
                         colour="#4169b2"
                         label="BCA"
@@ -1180,7 +1180,7 @@ export default function AuctionsPage() {
                 More Filters⌄
               </button>
 
-              <div className="ml-auto flex h-11 min-w-[280px] items-center rounded-lg border border-white/10 bg-[#0d0f10] px-4">
+              <div className="ml-auto flex h-11 w-full min-w-0 sm:w-auto sm:min-w-[280px] items-center rounded-lg border border-white/10 bg-[#0d0f10] px-4">
                 <span className="mr-3 text-white/30">
                   ⌕
                 </span>

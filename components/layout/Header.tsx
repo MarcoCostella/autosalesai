@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -46,7 +46,7 @@ export default function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-10 lg:flex">
+        <nav className="hidden items-center gap-6 min-[1400px]:flex">
           {navigation.slice(0, 5).map(([label, href]) => (
             <Link
               key={href}
@@ -64,7 +64,7 @@ export default function Header() {
 
         <Link
           href="/book-demo"
-          className="hidden rounded-lg border border-brand-gold/80 px-8 py-4 text-[13px] font-bold uppercase tracking-[0.18em] text-brand-gold transition hover:bg-brand-gold hover:text-black lg:inline-flex"
+          className="hidden rounded-lg border border-brand-gold/80 px-8 py-4 text-[13px] font-bold uppercase tracking-[0.18em] text-brand-gold transition hover:bg-brand-gold hover:text-black min-[1400px]:inline-flex"
         >
           Book A Demo
         </Link>
@@ -72,15 +72,16 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setMenuOpen((prev) => !prev)}
-          className="inline-flex border border-brand-gold/70 px-4 py-3 text-[12px] font-bold uppercase tracking-[0.18em] text-brand-gold lg:hidden"
+          className="inline-flex border border-brand-gold/70 px-4 py-3 text-[12px] font-bold uppercase tracking-[0.18em] text-brand-gold min-[1400px]:hidden"
           aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen} aria-controls="mobile-navigation"
         >
           {menuOpen ? "Close" : "Menu"}
         </button>
       </div>
 
       {menuOpen && (
-        <div className="border-t border-white/10 bg-black px-5 py-4 lg:hidden">
+        <div id="mobile-navigation" className="max-h-[calc(100dvh-92px)] overflow-y-auto overscroll-contain border-t border-white/10 bg-black px-5 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] md:max-h-[calc(100dvh-116px)] min-[1400px]:hidden">
           <nav className="flex flex-col gap-2">
             {navigation.map(([label, href]) => (
               <Link

@@ -40,7 +40,7 @@ export default function HomePage() {
                 Built For Used Car Dealers
               </p>
 
-              <h1 className="mt-3 font-heading text-[55px] font-bold leading-[0.96] tracking-[-0.045em] text-white">
+              <h1 className="mt-3 font-heading text-[40px] sm:text-[55px] font-bold leading-[0.96] tracking-[-0.045em] text-white">
                 Smarter Decisions.
                 <span
                   className="mt-2 block"
