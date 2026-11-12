@@ -1,3 +1,3 @@
-import WorkspaceScreen from "@/components/market-intelligence/WorkspaceScreen";
-export const metadata = { title: "Reports | AutoSalesAI Market Intelligence" };
-export default function Page() { return <WorkspaceScreen screen="reports" />; }
+import { IntelligenceReports } from "@/components/market-intelligence/IntelligenceReports";
+export const metadata={title:"Intelligence Reports | AutoSalesAI"};
+export default function Page(){return <IntelligenceReports/>;}
