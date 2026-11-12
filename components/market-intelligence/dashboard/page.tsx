@@ -1,4 +1,4 @@
-﻿import MarketAppShell from "@/components/market-intelligence/MarketAppShell";
+import MarketAppShell from "@/components/market-intelligence/MarketAppShell";
 
 const kpis = [
   {
@@ -67,7 +67,7 @@ const vehicles = [
     profit: "\u00A33,620",
     confidence: "98%",
     score: "97",
-    image: "/images/market-vehicles/vw-golf-gtd.jpg",
+    image: "/images/market-vehicles/vw-golf-gtd-hd.jpg",
   },
   {
     vehicle: "Ford Focus ST",
@@ -77,7 +77,7 @@ const vehicles = [
     profit: "\u00A32,980",
     confidence: "95%",
     score: "95",
-    image: "/images/market-vehicles/ford-focus-st.jpg",
+    image: "/images/market-vehicles/ford-focus-st-hd.jpg",
   },
   {
     vehicle: "Audi A3 S Line",
@@ -87,7 +87,7 @@ const vehicles = [
     profit: "\u00A33,410",
     confidence: "97%",
     score: "94",
-    image: "/images/market-vehicles/audi-a3-s-line.jpg",
+    image: "/images/market-vehicles/audi-a3-s-line-hd.jpg",
   },
   {
     vehicle: "Skoda Karoq SE",
@@ -97,7 +97,7 @@ const vehicles = [
     profit: "\u00A32,410",
     confidence: "92%",
     score: "92",
-    image: "/images/market-vehicles/skoda-karoq-se.jpg",
+    image: "/images/market-vehicles/skoda-karoq-se-hd.jpg",
   },
   {
     vehicle: "Seat Leon FR",
@@ -107,7 +107,7 @@ const vehicles = [
     profit: "\u00A33,410",
     confidence: "93%",
     score: "92",
-    image: "/images/market-vehicles/seat-leon-fr.jpg",
+    image: "/images/market-vehicles/seat-leon-fr-hd.jpg",
   },
 ];
 

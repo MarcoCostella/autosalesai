@@ -96,7 +96,7 @@ export const opportunities: Opportunity[] = [
     competitorCount: 8,
     pricePosition: "£1,250 below market",
 
-    image: "/images/market-vehicles/vw-golf-gtd.jpg",
+    image: "/images/market-vehicles/vw-golf-gtd-hd.jpg",
   },
 
   {
@@ -145,7 +145,7 @@ export const opportunities: Opportunity[] = [
     competitorCount: 7,
     pricePosition: "£1,100 below market",
 
-    image: "/images/market-vehicles/audi-a3-s-line.jpg",
+    image: "/images/market-vehicles/audi-a3-s-line-hd.jpg",
   },
 
   {
@@ -194,7 +194,7 @@ export const opportunities: Opportunity[] = [
     competitorCount: 9,
     pricePosition: "£925 below market",
 
-    image: "/images/market-vehicles/ford-focus-st.jpg",
+    image: "/images/market-vehicles/ford-focus-st-hd.jpg",
   },
 
   {
@@ -243,7 +243,7 @@ export const opportunities: Opportunity[] = [
     competitorCount: 12,
     pricePosition: "£700 below market",
 
-    image: "/images/market-vehicles/skoda-karoq-se.jpg",
+    image: "/images/market-vehicles/skoda-karoq-se-hd.jpg",
   },
 
   {
@@ -292,7 +292,7 @@ export const opportunities: Opportunity[] = [
     competitorCount: 11,
     pricePosition: "£600 below market",
 
-    image: "/images/market-vehicles/seat-leon-fr.jpg",
+    image: "/images/market-vehicles/seat-leon-fr-hd.jpg",
   },
 ];
 

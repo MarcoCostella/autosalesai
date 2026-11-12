@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useState } from "react";
 
 const examples = [
-  { name: "VW Golf GTD", image: "/images/market-vehicles/vw-golf-gtd.jpg", retail: 13250, purchase: 8900, fees: 250, prep: 850, transport: 250 },
-  { name: "Audi A3 S Line", image: "/images/market-vehicles/audi-a3-s-line.jpg", retail: 14100, purchase: 9800, fees: 250, prep: 700, transport: 250 },
-  { name: "Skoda Karoq SE", image: "/images/market-vehicles/skoda-karoq-se.jpg", retail: 15750, purchase: 11300, fees: 300, prep: 900, transport: 300 },
+  { name: "VW Golf GTD", image: "/images/market-vehicles/vw-golf-gtd-hd.jpg", retail: 13250, purchase: 8900, fees: 250, prep: 850, transport: 250 },
+  { name: "Audi A3 S Line", image: "/images/market-vehicles/audi-a3-s-line-hd.jpg", retail: 14100, purchase: 9800, fees: 250, prep: 700, transport: 250 },
+  { name: "Skoda Karoq SE", image: "/images/market-vehicles/skoda-karoq-se-hd.jpg", retail: 15750, purchase: 11300, fees: 300, prep: 900, transport: 300 },
 ];
 const money = (value: number) => new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 0 }).format(value);
 

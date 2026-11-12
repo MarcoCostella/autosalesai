@@ -94,7 +94,7 @@ export const opportunities: Opportunity[] = [
       "Strong retail demand, good profit margin, low days to sell and clean condition history make this a high-confidence acquisition.",
     competitorCount: 8,
     pricePosition: "\u00A31,250 below market",
-    image: "/images/market-vehicles/vw-golf-gtd.jpg",
+    image: "/images/market-vehicles/vw-golf-gtd-hd.jpg",
   },
   {
     id: "audi-a3-s-line-2020",
@@ -133,7 +133,7 @@ export const opportunities: Opportunity[] = [
       "High retail confidence, strong liquidity and sufficient margin after acquisition and preparation costs.",
     competitorCount: 7,
     pricePosition: "\u00A31,100 below market",
-    image: "/images/market-vehicles/audi-a3-s-line.jpg",
+    image: "/images/market-vehicles/audi-a3-s-line-hd.jpg",
   },
   {
     id: "ford-focus-st-2018",
@@ -172,7 +172,7 @@ export const opportunities: Opportunity[] = [
       "Strong projected ROI and good retail demand provide sufficient headroom at the recommended bid level.",
     competitorCount: 9,
     pricePosition: "\u00A3925 below market",
-    image: "/images/market-vehicles/ford-focus-st.jpg",
+    image: "/images/market-vehicles/ford-focus-st-hd.jpg",
   },
   {
     id: "skoda-karoq-se-2019",
@@ -211,7 +211,7 @@ export const opportunities: Opportunity[] = [
       "Commercially viable, but preparation allowance and narrower margin require bid discipline.",
     competitorCount: 12,
     pricePosition: "\u00A3700 below market",
-    image: "/images/market-vehicles/skoda-karoq-se.jpg",
+    image: "/images/market-vehicles/skoda-karoq-se-hd.jpg",
   },
   {
     id: "seat-leon-fr-2018",
@@ -250,7 +250,7 @@ export const opportunities: Opportunity[] = [
       "Acceptable margin and market position but mileage and preparation exposure reduce confidence.",
     competitorCount: 11,
     pricePosition: "\u00A3600 below market",
-    image: "/images/market-vehicles/seat-leon-fr.jpg",
+    image: "/images/market-vehicles/seat-leon-fr-hd.jpg",
   },
 ];
 
