@@ -1,3 +1,4 @@
+import { preparationTotal, sampleBuyerFee, sampleTransport, type ConditionGrade } from "./cost-assumptions";
 export type OpportunityDecision = "BUY" | "REVIEW" | "AVOID";
 
 export type OpportunityRisk = "Low" | "Medium" | "High";
@@ -33,6 +34,7 @@ export interface Opportunity {
 
   buyerFee: number;
   prepCost: number;
+  conditionGrade: ConditionGrade;
   transportCost: number;
   landedCost: number;
 
@@ -56,7 +58,7 @@ export interface Opportunity {
   image: string;
 }
 
-export const opportunities: Opportunity[] = [
+const sampleRecords: Omit<Opportunity, "conditionGrade">[] = [
   {
     id: "vw-golf-gtd-2019",
     score: 97,
@@ -253,6 +255,18 @@ export const opportunities: Opportunity[] = [
     image: "/images/market-vehicles/seat-leon-fr-hd.jpg",
   },
 ];
+
+// One shared cost basis feeds cards, assessments, assistant, analytics and reports.
+const grades: ConditionGrade[] = [3, 2, 3, 3, 4];
+const sellingDays = [28, 26, 30, 28, 32];
+export const opportunities: Opportunity[] = sampleRecords.map((v,i)=>{
+  const conditionGrade=grades[i];
+  const prepCost=preparationTotal(conditionGrade);
+  const landedCost=v.currentPrice+sampleBuyerFee+prepCost+sampleTransport;
+  const potentialProfit=v.atRetail-landedCost;
+  return {...v, conditionGrade, buyerFee:sampleBuyerFee, transportCost:sampleTransport,
+    prepCost, landedCost, potentialProfit, roi:Math.round(potentialProfit/landedCost*100), daysToSell:sellingDays[i]};
+});
 
 export function getOpportunity(
   id: string,

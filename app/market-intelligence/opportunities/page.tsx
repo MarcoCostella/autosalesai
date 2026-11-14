@@ -106,8 +106,8 @@ const filters = [
   "All Auctions",
   "All Makes",
   "Price: All",
-  "Profit: All",
-  "ROI: All",
+  "Headroom: All",
+  "Gross Return: All",
   "Risk: All",
   "Decision: All",
 ];
@@ -119,9 +119,9 @@ const headings = [
   "Sale",
   "Mileage",
   "Current Price",
-  "AT Retail",
-  "Profit",
-  "ROI",
+  "Assumed Retail",
+  "Gross Headroom",
+  "Gross Return",
   "Days to Sell",
   "Max Bid",
   "Decision",
@@ -132,6 +132,9 @@ export default function OpportunitiesPage() {
   return (
     <MarketAppShell>
       <div className="mx-auto max-w-[1600px]">
+        <aside className="mb-6 rounded-xl border border-[#49d7ff]/25 bg-[#49d7ff]/5 p-5 text-sm leading-7 text-white/65">
+          <strong className="text-[#49d7ff]">One cost basis across every vehicle.</strong> Gross headroom = assumed retail − purchase − £550 buyer fee − grade-based preparation − £100 transport. Preparation uses an assumed grade from 1–5; grade 5 has the highest budget. Gross return is headroom ÷ total acquisition cost. Days to Sell is an illustrative estimate around 28 days, measured from a retail-ready listing. These figures exclude tax, warranty, finance and overheads.
+        </aside>
         {/* PAGE HEADER */}
         <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-start">
           <div>
@@ -140,7 +143,7 @@ export default function OpportunitiesPage() {
             </h1>
 
             <p className="mt-1 text-[11px] text-[#7d7d7d]">
-              Live and upcoming vehicle opportunities across all auctions
+              Illustrative vehicles across auction sources · not live auction availability
             </p>
           </div>
 
@@ -200,7 +203,7 @@ export default function OpportunitiesPage() {
                     </div>
 
                     <div className="mt-0.5 text-[9px] text-[#858585]">
-                      {opportunity.derivative}
+                      {opportunity.derivative}<span className="mt-1 block text-[#49d7ff]">Assumed grade {opportunity.conditionGrade}/5 · {formatMoney(opportunity.prepCost)} prep</span>
                     </div>
 
                     <div className="mt-1 text-[8px] text-[#666]">
@@ -239,7 +242,7 @@ export default function OpportunitiesPage() {
 
                   <div>
                     <div className="text-[7px] uppercase tracking-[0.12em] text-[#666]">
-                      AT Retail
+                      Assumed Retail
                     </div>
                     <div className="mt-1 text-[11px] font-semibold text-white">
                       {formatMoney(opportunity.atRetail)}
@@ -248,7 +251,7 @@ export default function OpportunitiesPage() {
 
                   <div>
                     <div className="text-[7px] uppercase tracking-[0.12em] text-[#666]">
-                      Est. Profit
+                      Gross Headroom
                     </div>
                     <div className="mt-1 text-[11px] font-semibold text-[#3fe187]">
                       {formatMoney(opportunity.potentialProfit)}
@@ -261,7 +264,7 @@ export default function OpportunitiesPage() {
 
                   <div>
                     <div className="text-[7px] uppercase tracking-[0.1em] text-[#666]">
-                      ROI
+                      Gross Return
                     </div>
                     <div className="mt-1 text-[11px] font-semibold text-[#71d63f]">
                       {opportunity.roi}%
@@ -340,7 +343,7 @@ export default function OpportunitiesPage() {
                       </div>
 
                       <div className="mt-1 whitespace-nowrap text-[8px] text-[#777]">
-                        {opportunity.derivative}
+                        {opportunity.derivative}<span className="mt-1 block text-[#49d7ff]">Assumed grade {opportunity.conditionGrade}/5 · {formatMoney(opportunity.prepCost)} prep</span>
                       </div>
                     </td>
 
