@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import MarketAppShell from "@/components/market-intelligence/MarketAppShell";
+import { opportunities } from "@/lib/market-intelligence/opportunities";
 import { useMemo, useState } from "react";
 
 type AuctionSource = "BCA" | "Manheim" | "DealerAuction";
@@ -171,6 +173,8 @@ const volumeData = [
   { day: "27", month: "Aug", value: 234 },
 ];
 
+const averageDaysToSell = Math.round(opportunities.reduce((total, vehicle) => total + vehicle.daysToSell, 0) / opportunities.length);
+
 const activity = [
   {
     label: "New Listings (24h)",
@@ -189,12 +193,12 @@ const activity = [
     points: [18, 11, 23, 17, 29, 20, 21, 38],
   },
   {
-    label: "Avg. Mileage",
-    value: "54,230",
-    change: "↑ 1.2%",
-    suffix: "vs yesterday",
+    label: "Average Days to Sell",
+    value: `${averageDaysToSell} days`,
+    change: "Sample estimate",
+    suffix: `across ${opportunities.length} vehicles`,
     positive: true,
-    points: [20, 23, 19, 28, 27, 34, 31, 42],
+    points: [],
   },
   {
     label: "Avg. Age (Years)",
@@ -411,48 +415,6 @@ function Icon({
   }
 }
 
-const sideNav = [
-  {
-    label: "Overview",
-    href: "/market-intelligence/dashboard",
-    icon: "overview" as const,
-  },
-  {
-    label: "Opportunities",
-    href: "/market-intelligence/opportunities",
-    icon: "opportunities" as const,
-  },
-  {
-    label: "Auctions",
-    href: "/market-intelligence/auctions",
-    icon: "auctions" as const,
-  },
-  {
-    label: "Portfolio",
-    href: "/market-intelligence/portfolio",
-    icon: "portfolio" as const,
-  },
-  {
-    label: "Watchlist",
-    href: "/market-intelligence/watchlist",
-    icon: "watchlist" as const,
-  },
-  {
-    label: "Analytics",
-    href: "/market-intelligence/analytics",
-    icon: "analytics" as const,
-  },
-  {
-    label: "Reports",
-    href: "/market-intelligence/reports",
-    icon: "reports" as const,
-  },
-  {
-    label: "Settings",
-    href: "/market-intelligence/settings",
-    icon: "settings" as const,
-  },
-];
 
 export default function AuctionsPage() {
   const [viewMode, setViewMode] =
@@ -510,156 +472,11 @@ export default function AuctionsPage() {
   );
 
   return (
-    <main className="min-h-screen bg-[#050607] text-white">
-      {/* GLOBAL HEADER */}
-
-      <header className="border-b border-white/10 bg-[#030303]">
-        <div className="mx-auto flex h-[100px] max-w-[1500px] items-center px-7">
-          <Link href="/" className="mr-16 shrink-0">
-            <div className="text-[29px] font-semibold leading-none tracking-tight">
-              AutoSales
-              <span className="text-[#d7ad25]">
-                AI
-              </span>
-            </div>
-
-            <div className="mt-2 text-[8px] uppercase tracking-[0.36em] text-white/45">
-              Market Intelligence
-            </div>
-          </Link>
-
-          <nav className="hidden flex-1 items-center justify-center gap-12 xl:flex">
-            <Link
-              href="/"
-              className="text-[12px] font-semibold uppercase tracking-[0.14em] text-white/90 hover:text-[#d7ad25]"
-            >
-              Home
-            </Link>
-
-            <Link
-              href="/ai-sales-assistant"
-              className="text-[12px] font-semibold uppercase tracking-[0.14em] text-white/90 hover:text-[#d7ad25]"
-            >
-              AI Sales Assistant
-            </Link>
-
-            <Link
-              href="/market-intelligence"
-              className="relative text-[12px] font-semibold uppercase tracking-[0.14em] text-[#d7ad25]"
-            >
-              Market Intelligence
-
-              <span className="absolute -bottom-[26px] left-0 h-[2px] w-full bg-[#d7ad25]" />
-            </Link>
-
-            <Link
-              href="/case-studies"
-              className="text-[12px] font-semibold uppercase tracking-[0.14em] text-white/90 hover:text-[#d7ad25]"
-            >
-              Case Studies
-            </Link>
-
-            <Link
-              href="/about"
-              className="text-[12px] font-semibold uppercase tracking-[0.14em] text-white/90 hover:text-[#d7ad25]"
-            >
-              About
-            </Link>
-          </nav>
-
-          <div className="ml-auto flex items-center gap-7">
-            <button className="hidden items-center gap-2 text-sm font-semibold text-[#d7ad25] 2xl:flex">
-              <span className="text-lg">
-                ↻
-              </span>
-
-              Refresh
-            </button>
-
-            <div className="hidden h-8 w-px bg-white/10 2xl:block" />
-
-            <div className="hidden items-center gap-3 2xl:flex">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#8f6d13] bg-[#121416] text-xs font-bold">
-                MC
-              </div>
-
-              <div>
-                <div className="text-sm font-semibold">
-                  Marco Costella
-                </div>
-
-                <div className="text-xs text-white/40">
-                  Pro Plan
-                </div>
-              </div>
-
-              <span className="ml-3 text-white/50">
-                ⌄
-              </span>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <div className="flex min-h-[calc(100vh-100px)]">
-        {/* SIDE NAVIGATION */}
-
-        <aside className="hidden w-[225px] shrink-0 border-r border-white/10 bg-[#080a0b] lg:flex lg:flex-col">
-          <div className="px-6 pb-5 pt-7 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/55">
-            Market Intelligence
-          </div>
-
-          <nav className="space-y-2 px-3">
-            {sideNav.map((item) => {
-              const active =
-                item.label === "Auctions";
-
-              return (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className={`flex items-center gap-4 rounded-lg px-4 py-3.5 text-[13px] transition ${
-                    active
-                      ? "border border-[#705710]/50 bg-[#30260d] text-[#e5b82d]"
-                      : "text-white/70 hover:bg-white/[0.035] hover:text-white"
-                  }`}
-                >
-                  <Icon
-                    name={item.icon}
-                    className={
-                      active
-                        ? "text-[#e5b82d]"
-                        : "text-white/55"
-                    }
-                  />
-
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
-
-          <div className="mt-auto p-3">
-            <div className="rounded-xl border border-[#735a14]/65 bg-[#0d0f10] p-5">
-              <div className="text-sm font-semibold text-[#e1b629]">
-                AI Assistant
-              </div>
-
-              <div className="mt-2 max-w-[120px] text-[11px] leading-relaxed text-white/45">
-                Ask anything about the auctions
-              </div>
-
-              <button className="mt-4 text-xs text-white/60">
-                ◉
-              </button>
-            </div>
-          </div>
-        </aside>
-
+    <MarketAppShell>
         {/* CONTENT */}
 
         <section className="min-w-0 flex-1 bg-[radial-gradient(circle_at_55%_0%,rgba(215,173,37,0.025),transparent_28%)]">
-          <div className="mx-auto max-w-[1500px] px-6 py-8 xl:px-9">
+          <div className="mx-auto max-w-[1500px]">
             {/* PAGE TITLE */}
 
             <div>
@@ -668,7 +485,7 @@ export default function AuctionsPage() {
               </h1>
 
               <p className="mt-1 text-[13px] text-white/45">
-                Live and upcoming auction events from BCA, Manheim and Dealer Auction
+                Illustrative auction events from BCA, Manheim and Dealer Auction · no live feed
               </p>
             </div>
 
@@ -1036,6 +853,7 @@ export default function AuctionsPage() {
                 </Link>
               </div>
 
+              <p className="mt-3 text-xs leading-6 text-white/50">Illustrative activity figures. Average Days to Sell is the rounded mean of the five sample vehicle estimates, measured from a retail-ready listing. It is not measured auction performance or a historical trend.</p>
               <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
                 {activity.map(
                   (item) => (
@@ -1070,14 +888,14 @@ export default function AuctionsPage() {
                           </div>
                         </div>
 
-                        <MiniSparkline
+                        {item.points.length > 1 && <MiniSparkline
                           points={
                             item.points
                           }
                           negative={
                             !item.positive
                           }
-                        />
+                        />}
                       </div>
                     </div>
                   )
@@ -1192,8 +1010,7 @@ export default function AuctionsPage() {
             </div>
           </div>
         </section>
-      </div>
-    </main>
+    </MarketAppShell>
   );
 }
 
