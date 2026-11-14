@@ -542,7 +542,7 @@ export default function AuctionsPage() {
             <div className="mt-4 grid gap-4 2xl:grid-cols-[minmax(0,2.05fr)_minmax(360px,1fr)]">
               {/* UPCOMING AUCTIONS */}
 
-              <div className="overflow-hidden rounded-xl border border-[#765b12]/60 bg-[#0a0c0d]">
+              <div id="auction-list" className="scroll-mt-44 overflow-hidden rounded-xl border border-[#765b12]/60 bg-[#0a0c0d]">
                 <div className="flex min-h-[62px] items-center justify-between border-b border-white/10 px-5">
                   <h2 className="text-[17px] font-semibold">
                     Upcoming Auctions
@@ -705,7 +705,8 @@ export default function AuctionsPage() {
                     </div>
 
                     <Link
-                      href="/market-intelligence/auctions/all"
+                      href="/market-intelligence/auctions#auction-list"
+                      onClick={() => { setAuctionHouse("All Auction Houses"); setLocation("All Locations"); setAuctionType("All Types"); setSearch(""); setViewMode("table"); }}
                       className="flex h-[55px] items-center justify-center gap-3 text-xs font-semibold text-[#d7ad25] hover:text-[#f0ca4c]"
                     >
                       View all auctions
