@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import MarketAppShell from "@/components/market-intelligence/MarketAppShell";
 import { opportunities } from "@/lib/market-intelligence/opportunities";
 import { headroom } from "@/lib/market-intelligence/assessment";
@@ -501,7 +502,8 @@ export default function AuctionsPage() {
                 value="14"
                 description="Next 7 days"
                 change="↑ 27% vs last 7 days"
-                icon="calendar"
+                image="/images/how-it-works/source.JPG"
+                imageAlt="Auction gavel with vehicles in an auction hall"
               />
 
               <KpiCard
@@ -509,7 +511,8 @@ export default function AuctionsPage() {
                 value="1,256"
                 description="Across all auctions"
                 change="↑ 16% vs last 7 days"
-                icon="car"
+                image="/images/how-it-works/real-inventory.png"
+                imageAlt="Rows of vehicles in a dealership showroom"
               />
 
               <KpiCard
@@ -517,7 +520,8 @@ export default function AuctionsPage() {
                 value="£3,240"
                 description="Per opportunity"
                 change="↑ 15% vs last 7 days"
-                icon="chart"
+                image="/images/how-it-works/feature-price-confidence.JPG"
+                imageAlt="Vehicle market value analysis on a laptop"
               />
 
               <KpiCard
@@ -525,7 +529,8 @@ export default function AuctionsPage() {
                 value={`${vehiclesAboveHeadroom} / ${opportunities.length}`}
                 description="Sample vehicles after listed costs"
                 change="Gross headroom · not net profit"
-                icon="target"
+                image="/images/how-it-works/feature-target-max-bid.JPG"
+                imageAlt="Assessing a vehicle against buying criteria"
               />
 
               <KpiCard
@@ -533,7 +538,8 @@ export default function AuctionsPage() {
                 value="38%"
                 description="Won vs offered"
                 change="↑ 5pp vs last 7 days"
-                icon="target"
+                image="/images/how-it-works/convert.JPG"
+                imageAlt="Vehicle keys handed over with a handshake"
               />
             </div>
 
@@ -1019,49 +1025,25 @@ export default function AuctionsPage() {
   );
 }
 
-function KpiCard({
-  title,
-  value,
-  description,
-  change,
-  icon,
-}: {
+function KpiCard({ title, value, description, change, image, imageAlt }: {
   title: string;
   value: string;
   description: string;
   change: string;
-
-  icon:
-    | "calendar"
-    | "car"
-    | "chart"
-    | "money"
-    | "target";
+  image: string;
+  imageAlt: string;
 }) {
   return (
-    <div className="relative min-h-[145px] rounded-xl border border-[#735a14]/60 bg-gradient-to-br from-[#0d0f10] to-[#090a0b] p-5">
-      <div className="text-[11px] font-semibold text-white/75">
-        {title}
+    <div className="group overflow-hidden rounded-xl border border-white/15 bg-[#10171b] shadow-[0_8px_24px_rgba(0,0,0,0.15)]">
+      <div className="relative h-28 overflow-hidden border-b border-white/10">
+        <Image src={image} alt={imageAlt} fill sizes="(min-width:1280px) 20vw, (min-width:768px) 50vw, 100vw" className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-105" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#10171b]/60 to-transparent" />
       </div>
-
-      <div className="mt-3 text-[29px] font-semibold leading-none tracking-tight">
-        {value}
-      </div>
-
-      <div className="mt-3 text-[11px] text-white/45">
-        {description}
-      </div>
-
-      <div className="mt-2 text-[10px] text-[#55d163]">
-        {change}
-      </div>
-
-      <div className="absolute right-5 top-12 flex h-12 w-12 items-center justify-center rounded-lg border border-[#8d6b13] bg-[#211b0a] text-xl text-[#dab126]">
-        {icon === "calendar" && "□"}
-        {icon === "car" && "▱"}
-        {icon === "chart" && "↗"}
-        {icon === "money" && "◎"}
-        {icon === "target" && "⊙"}
+      <div className="p-5">
+        <div className="text-[11px] font-semibold text-white/75">{title}</div>
+        <div className="mt-3 text-[29px] font-semibold leading-none tracking-tight">{value}</div>
+        <div className="mt-3 text-[11px] text-white/55">{description}</div>
+        <div className="mt-2 text-[10px] text-[#55d163]">{change}</div>
       </div>
     </div>
   );
