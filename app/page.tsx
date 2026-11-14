@@ -1050,7 +1050,7 @@ export default function HomePage() {
             <div className="group relative h-[195px] overflow-hidden border-b border-white/20 lg:border-b-0 lg:border-r">
 
               <img
-                src="/images/market-vehicles/audi-a3-s-line.JPG"
+                src="/images/how-it-works/real-inventory.png"
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover object-center opacity-90 transition-transform duration-500 group-hover:scale-[1.035]"
               />
