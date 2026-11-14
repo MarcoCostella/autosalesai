@@ -3,6 +3,7 @@
 import Link from "next/link";
 import MarketAppShell from "@/components/market-intelligence/MarketAppShell";
 import { opportunities } from "@/lib/market-intelligence/opportunities";
+import { headroom } from "@/lib/market-intelligence/assessment";
 import { useMemo, useState } from "react";
 
 type AuctionSource = "BCA" | "Manheim" | "DealerAuction";
@@ -172,6 +173,9 @@ const volumeData = [
   { day: "26", month: "Aug", value: 246 },
   { day: "27", month: "Aug", value: 234 },
 ];
+
+const headroomThreshold = 2000;
+const vehiclesAboveHeadroom = opportunities.filter(vehicle => headroom(vehicle) >= headroomThreshold).length;
 
 const averageDaysToSell = Math.round(opportunities.reduce((total, vehicle) => total + vehicle.daysToSell, 0) / opportunities.length);
 
@@ -517,11 +521,11 @@ export default function AuctionsPage() {
               />
 
               <KpiCard
-                title="Total Est. Profit"
-                value="£4.07M"
-                description="Across all opportunities"
-                change="↑ 20% vs last 7 days"
-                icon="money"
+                title="Meet £2,000 Headroom"
+                value={`${vehiclesAboveHeadroom} / ${opportunities.length}`}
+                description="Sample vehicles after listed costs"
+                change="Gross headroom · not net profit"
+                icon="target"
               />
 
               <KpiCard
