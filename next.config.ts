@@ -5,12 +5,12 @@ import type { NextConfig } from "next";
 const development = process.env.NODE_ENV === "development";
 const contentSecurityPolicy = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' https://vercel.live${development ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline' https://vercel.live https://www.recaptcha.net/recaptcha/ https://www.gstatic.com/recaptcha/${development ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://images.unsplash.com",
   "font-src 'self'",
-  `connect-src 'self' https://formspree.io https://vercel.live${development ? " ws: wss:" : ""}`,
-  "frame-src https://vercel.live",
+  `connect-src 'self' https://formspree.io https://vercel.live https://www.recaptcha.net/recaptcha/ https://www.google.com/recaptcha/${development ? " ws: wss:" : ""}`,
+  "frame-src https://vercel.live https://www.recaptcha.net/recaptcha/ https://www.google.com/recaptcha/",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self' https://formspree.io",
