@@ -38,3 +38,14 @@
 - Vercel DPA: https://vercel.com/legal/dpa
 - 123 Reg privacy: https://www.123-reg.co.uk/terms/privacy/
 - 123 Reg DPA: https://www.123-reg.co.uk/terms/data-processing-addendum/
+
+## Focused review — 15 November 2026
+- Rejected conversion redesign restored from exact pre-edit backups; no redesign was published.
+- Corrected punctuation and replaced historical cookie audit prose with the current known inventory.
+- reCAPTCHA is deployed and user reported a successful checkbox response. End-to-end delivery and backend enforcement were not confirmed by that observation.
+- Verified localStorage keys: autosalesai-preview-watchlist-v1, autosalesai-preview-stages-v1, autosalesai-preview-preferences-v1; no automatic expiry in the shared hook. The previous no-localStorage finding is superseded.
+- Owner answered “Not sure” on operation of 12-month deletion in Formspree and email. Retention wording now distinguishes the adopted period from an unverified deletion process. No automated deletion asserted.
+- Product-interest field belongs to the rejected redesign; not included in the retained enquiry disclosures.
+- The public operational review notice remains. No certification of legal compliance, no invented cookie expiry or transfer safeguard.
+- Still needed: account-specific DPAs/transfer arrangements, security-cookie browser inventory, preview persistence purpose/choice assessment, retention procedure and appropriate review of website liability terms.
+- Source: ICO storage/access guidance https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/cookies-and-similar-technologies/ ; Google reCAPTCHA FAQ https://developers.google.com/recaptcha/docs/faq/
