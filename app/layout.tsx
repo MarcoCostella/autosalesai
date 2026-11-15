@@ -3,6 +3,7 @@ import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import NavigationScroll from "@/components/layout/NavigationScroll";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
     <html lang="en-GB" className={`${inter.variable} ${montserrat.variable}`}>
       <body className="font-body antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(organization).replace(/</g,"\\u003c")}} />
+        <NavigationScroll />
         <Header />
         <main>{children}</main>
         <Footer />
