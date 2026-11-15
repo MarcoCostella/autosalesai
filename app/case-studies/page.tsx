@@ -1,10 +1,12 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { FeaturedStudy, StudyCTA } from "@/components/case-studies/DealerStory";
 
-export const metadata: Metadata = { title: "Customer Stories | AutoSalesAI", description: "Explore The Dealership’s five-day AutoSalesAI implementation, the sales workflows it covered and the owner’s feedback." };
+
+
+export const metadata = pageMetadata("Car Dealership AI Case Studies | AutoSalesAI","Explore AutoSalesAI customer stories, including The Dealership’s five-day implementation, enquiry workflows and first-hand feedback.","/case-studies");
 
 export default function CaseStudiesPage() {
   return <div className="bg-[#020506] text-white">

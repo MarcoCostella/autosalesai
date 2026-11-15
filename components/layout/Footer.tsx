@@ -20,6 +20,7 @@ const intelligenceLinks = [
 ];
 
 const resourceLinks = [
+  { label: "Dealer Guides", href: "/guides" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "FAQs", href: "/#faq" },
   { label: "Market Analysis", href: "/market-intelligence/analytics" },

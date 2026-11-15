@@ -1,9 +1,8 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import MarketLanding from "@/components/market-intelligence/marketing/MarketLanding";
 
-export const metadata: Metadata = {
-  title: "Market Intelligence for Used Car Dealers | AutoSalesAI",
-  description: "Explore automotive acquisition, retail pricing, demand, costs and risk. Try a worked buying example and discover AutoSalesAI Market Intelligence for independent dealers.",
-};
+
+
+export const metadata = pageMetadata("Used Car Market & Acquisition Intelligence | AutoSalesAI","Explore used-car acquisition, retail pricing, preparation costs and buying limits for independent dealers. Try sample assessments and worked buying examples.","/market-intelligence");
 
 export default function MarketIntelligencePage() { return <MarketLanding />; }

@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import SolutionsSection from "@/components/homepage/SolutionsSection";
@@ -6,6 +7,8 @@ import PlatformTicker from "@/components/homepage/PlatformTicker";
 
 const GOLD = "#F5B800";
 const CYAN = "#00BDF2";
+
+export const metadata = pageMetadata("AI Software for UK Car Dealers | AutoSalesAI","AI sales assistance and used-car market intelligence for independent UK dealerships. Explore customer enquiries, stock decisions and a personalised demo.","/");
 
 export default function HomePage() {
   return (

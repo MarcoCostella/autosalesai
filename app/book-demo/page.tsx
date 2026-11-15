@@ -1,13 +1,16 @@
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { Check, ArrowUpRight } from "lucide-react";
 import DemoForm from "@/components/forms/DemoForm";
-export const metadata = { title:"Book a Personalised Demo | AutoSalesAI", description:"Explore AutoSalesAI with a demonstration shaped around your dealership, customer enquiries and buying priorities." };
+
 const steps=[
  {title:"We explore your dealership",image:"/images/how-it-works/real-inventory.png",text:"We review your website and stock profile so the conversation starts with how your business actually operates.",detail:"Your website. Your vehicles. Your priorities."},
  {title:"We understand your workflow",image:"/images/Dealer-qualification.JPG",text:"We discuss how enquiries reach your team, where customers need support and what matters in your buying process.",detail:"The challenges worth solving first."},
  {title:"You see a relevant demonstration",image:"/images/how-it-works/feature-vehicle-market-analysis.JPG",text:"We walk through the capabilities that fit, answer your questions and discuss the scope and integrations you would need.",detail:"A practical look at the possibilities."},
 ];
+export const metadata = pageMetadata("Book a Car Dealership AI Demo | AutoSalesAI","Request a personalised AutoSalesAI demonstration around your dealership website, customer enquiries, stock profile and buying priorities.","/book-demo");
+
 export default function BookDemoPage(){return <div className="bg-[#020506] text-white">
  <section className="relative isolate overflow-hidden border-b border-white/10"><Image src="/images/how-it-works/real-inventory.png" alt="" fill priority sizes="100vw" className="-z-20 object-cover object-center"/><div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-r from-[#020506] via-[#020506]/90 to-[#020506]/45"/><div className="mx-auto max-w-[1280px] px-6 py-10 md:px-10 md:py-14"><p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#F5B800]">Built around your dealership</p><h1 className="mt-4 max-w-[800px] font-heading text-4xl font-bold leading-[1.08] tracking-[-0.04em] md:text-5xl">See what AutoSalesAI<br/><span className="text-[#F5B800]">could do for your business.</span></h1><p className="mt-5 max-w-[640px] text-base leading-7 text-white/70">Explore stronger customer conversations and more informed buying decisions, with a demonstration shaped around your stock, your team and your priorities.</p></div></section>
  <div className="mx-auto max-w-[1280px] px-6 pb-14 pt-8 md:px-10 md:pb-16 md:pt-10">

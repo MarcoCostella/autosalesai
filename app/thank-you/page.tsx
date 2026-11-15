@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 
+export const metadata={title:"Demo Request Received | AutoSalesAI",robots:{index:false,follow:true}};
+
 export default function ThankYouPage() {
   return (
     <main className="min-h-screen bg-brand-black px-6 py-24 text-white">
