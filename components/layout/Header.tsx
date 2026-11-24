@@ -33,17 +33,26 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-black/95 backdrop-blur">
       <div className="mx-auto flex h-[92px] max-w-[1440px] items-center justify-between min-[700px]:justify-center min-[1200px]:justify-between gap-5 px-5 md:px-8 min-[1200px]:h-[106px] min-[1400px]:px-12">
-        <Link href="/" className="relative flex shrink-0 items-center">
+        <Link href="/" aria-label="AutoSalesAI home" className="relative flex shrink-0 items-center">
           <div className="absolute inset-0 rounded-full bg-brand-gold/10 blur-3xl" />
 
-          <Image
-            src="/images/autosalesai-logo-transparent.png"
-            alt="AutoSalesAI"
-            width={320}
-            height={120}
-            priority
-            className="relative z-10 h-auto w-[190px] object-contain md:w-[250px] min-[1200px]:w-[230px] min-[1400px]:w-[280px]"
-          />
+          <span className="relative z-10 block w-[190px] md:w-[250px] min-[1200px]:w-[230px] min-[1400px]:w-[280px]">
+            <span className="relative block aspect-[3.3] overflow-hidden" aria-hidden="true">
+              <Image
+                src="/images/autosalesai-dealer-tagline-logo.png"
+                alt=""
+                width={1774}
+                height={887}
+                priority
+                sizes="(min-width:1400px) 331px, (min-width:1200px) 272px, (min-width:768px) 295px, 225px"
+                className="absolute left-[-8%] top-[-25%] h-auto w-[118%] max-w-none"
+              />
+            </span>
+            <span className="block text-center font-body text-[7px] font-medium uppercase leading-[1.15] tracking-[0.08em] text-white min-[1400px]:text-[8px]">
+              <span className="block whitespace-nowrap">AI Sales Assistant &amp; Market Intelligence</span>
+              <span className="mt-0.5 block tracking-[0.22em]">For Used Car Dealers</span>
+            </span>
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-4 min-[1200px]:flex min-[1400px]:gap-6">
